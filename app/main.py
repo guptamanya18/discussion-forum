@@ -10,3 +10,9 @@ Base.metadata.create_all(bind=engine)
 @app.get("/")
 def home():
     return {"message":"Welcome To Real-Time Discussion Forum"}
+
+
+from .routes import users
+
+app.include_router(users.router)
+
