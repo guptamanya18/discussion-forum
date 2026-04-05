@@ -1,0 +1,576 @@
+2026-04-04 01:36:20,039 [app.kafka_producer] INFO: Kafka producer started
+2026-04-04 01:36:20,040 [community_service] INFO: Community service started successfully
+2026-04-05 00:38:16,502 [app.kafka_producer] INFO: Kafka producer stopped
+2026-04-05 00:39:34,060 [app.kafka_producer] INFO: Kafka producer started
+2026-04-05 00:39:34,236 [asyncio] ERROR: Unclosed AIOKafkaProducer
+producer: <aiokafka.producer.producer.AIOKafkaProducer object at 0x740ade896ba0>
+2026-04-05 00:46:20,283 [app.kafka_producer] INFO: Kafka producer started
+2026-04-05 00:46:20,451 [asyncio] ERROR: Unclosed AIOKafkaProducer
+producer: <aiokafka.producer.producer.AIOKafkaProducer object at 0x79320e3e2ba0>
+2026-04-05 00:50:19,767 [app.kafka_producer] INFO: Kafka producer started
+2026-04-05 00:50:19,912 [asyncio] ERROR: Unclosed AIOKafkaProducer
+producer: <aiokafka.producer.producer.AIOKafkaProducer object at 0x76a994af6ba0>
+2026-04-05 00:54:48,066 [app.kafka_producer] INFO: Kafka producer started
+2026-04-05 00:54:48,182 [asyncio] ERROR: Unclosed AIOKafkaProducer
+producer: <aiokafka.producer.producer.AIOKafkaProducer object at 0x79300dff2660>
+2026-04-05 00:55:50,436 [app.kafka_producer] INFO: Kafka producer started
+2026-04-05 00:55:50,437 [community_service] INFO: Community service started successfully
+2026-04-05 00:55:50,438 [aiokafka.consumer.subscription_state] INFO: Updating subscribed topics to: frozenset({'user-events'})
+2026-04-05 00:55:50,449 [aiokafka.consumer.group_coordinator] INFO: Discovered coordinator 1 for group community-service-user-sync
+2026-04-05 00:55:50,450 [aiokafka.consumer.group_coordinator] INFO: Revoking previously assigned partitions set() for group community-service-user-sync
+2026-04-05 00:55:50,450 [aiokafka.consumer.group_coordinator] INFO: (Re-)joining group community-service-user-sync
+2026-04-05 00:55:53,455 [aiokafka.consumer.group_coordinator] INFO: Joined group 'community-service-user-sync' (generation 1) with member_id aiokafka-0.13.0-44b46236-b3ac-4784-a836-257a24e496bd
+2026-04-05 00:55:53,455 [aiokafka.consumer.group_coordinator] INFO: Elected group leader -- performing partition assignments using roundrobin
+2026-04-05 00:55:53,460 [aiokafka.consumer.group_coordinator] INFO: Successfully synced group community-service-user-sync with generation 1
+2026-04-05 00:55:53,461 [aiokafka.consumer.group_coordinator] INFO: Setting newly assigned partitions {TopicPartition(topic='user-events', partition=0)} for group community-service-user-sync
+2026-04-05 00:55:53,462 [community_service.consumer] INFO: Kafka consumer started, listening for user-events
+2026-04-05 00:56:26,213 [aiokafka.consumer.group_coordinator] INFO: LeaveGroup request succeeded
+2026-04-05 00:56:26,217 [community_service.consumer] INFO: Kafka consumer stopped
+2026-04-05 00:56:26,220 [app.kafka_producer] INFO: Kafka producer stopped
+2026-04-05 00:56:58,369 [app.kafka_producer] INFO: Kafka producer started
+2026-04-05 00:56:58,370 [community_service] INFO: Community service started successfully
+2026-04-05 00:56:58,372 [aiokafka.consumer.subscription_state] INFO: Updating subscribed topics to: frozenset({'user-events'})
+2026-04-05 00:56:58,442 [aiokafka.cluster] WARNING: Topic user-events is not available during auto-create initialization
+2026-04-05 00:56:58,554 [aiokafka.cluster] WARNING: Topic user-events is not available during auto-create initialization
+2026-04-05 00:56:58,685 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 00:56:58,795 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 00:56:58,898 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 00:56:59,002 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 00:56:59,108 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 00:56:59,215 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 00:56:59,324 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 00:56:59,432 [aiokafka.consumer.group_coordinator] INFO: Discovered coordinator 1 for group community-service-user-sync
+2026-04-05 00:56:59,432 [aiokafka.consumer.group_coordinator] INFO: Revoking previously assigned partitions set() for group community-service-user-sync
+2026-04-05 00:56:59,433 [aiokafka.consumer.group_coordinator] INFO: (Re-)joining group community-service-user-sync
+2026-04-05 00:57:02,446 [aiokafka.consumer.group_coordinator] INFO: Joined group 'community-service-user-sync' (generation 1) with member_id aiokafka-0.13.0-51fb3d52-c190-4201-8cfd-0a449c1cdab6
+2026-04-05 00:57:02,447 [aiokafka.consumer.group_coordinator] INFO: Elected group leader -- performing partition assignments using roundrobin
+2026-04-05 00:57:02,512 [aiokafka.consumer.group_coordinator] INFO: Successfully synced group community-service-user-sync with generation 1
+2026-04-05 00:57:02,513 [aiokafka.consumer.group_coordinator] INFO: Setting newly assigned partitions {TopicPartition(topic='user-events', partition=0)} for group community-service-user-sync
+2026-04-05 00:57:02,514 [community_service.consumer] INFO: Kafka consumer started, listening for user-events
+2026-04-05 00:57:35,548 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/1 "HTTP/1.1 200 OK"
+2026-04-05 00:57:35,626 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/2 "HTTP/1.1 200 OK"
+2026-04-05 00:57:35,680 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/3 "HTTP/1.1 200 OK"
+2026-04-05 00:57:35,724 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/4 "HTTP/1.1 200 OK"
+2026-04-05 00:57:35,765 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/5 "HTTP/1.1 200 OK"
+2026-04-05 00:57:35,806 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/6 "HTTP/1.1 200 OK"
+2026-04-05 00:57:35,840 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/7 "HTTP/1.1 200 OK"
+2026-04-05 00:57:35,916 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/8 "HTTP/1.1 200 OK"
+2026-04-05 00:57:35,948 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/16 "HTTP/1.1 200 OK"
+2026-04-05 00:57:35,963 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "peter joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 00:57:35,987 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/11 "HTTP/1.1 200 OK"
+2026-04-05 00:57:35,999 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "karen joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 00:57:36,022 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "grace joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 00:57:36,047 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "eve joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 00:57:36,067 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "diana joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 00:57:36,091 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/10 "HTTP/1.1 200 OK"
+2026-04-05 00:57:36,102 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "jack joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 00:57:36,140 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "henry joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 00:57:36,163 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "frank joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 00:57:36,203 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/20 "HTTP/1.1 200 OK"
+2026-04-05 00:57:36,217 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "tina joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 00:57:36,263 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "bob joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 00:57:36,286 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/9 "HTTP/1.1 200 OK"
+2026-04-05 00:57:36,297 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "ivy joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 00:57:36,320 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/15 "HTTP/1.1 200 OK"
+2026-04-05 00:57:36,331 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "olivia joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 00:57:36,351 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "tina joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 00:57:36,374 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/13 "HTTP/1.1 200 OK"
+2026-04-05 00:57:36,385 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "mia joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 00:57:36,407 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "jack joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 00:57:36,428 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "diana joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 00:57:36,450 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/18 "HTTP/1.1 200 OK"
+2026-04-05 00:57:36,462 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "rachel joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 00:57:36,484 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/17 "HTTP/1.1 200 OK"
+2026-04-05 00:57:36,496 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "quinn joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 00:57:36,515 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "eve joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 00:57:36,541 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/19 "HTTP/1.1 200 OK"
+2026-04-05 00:57:36,553 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "sam joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 00:57:36,575 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "alice joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 00:57:36,596 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "grace joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 00:57:36,620 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "tina joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 00:57:36,656 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "bob joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 00:57:36,674 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "sam joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 00:57:36,692 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "jack joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 00:57:36,711 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "peter joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 00:57:36,730 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "diana joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 00:57:36,750 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "rachel joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 00:57:36,769 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "eve joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 00:57:36,805 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "tina joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 00:57:36,825 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "grace joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 00:57:36,846 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "mia joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 00:57:36,865 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "olivia joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 00:57:36,884 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "alice joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 00:57:36,905 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "karen joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 00:57:36,952 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "bob joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 00:57:36,977 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/12 "HTTP/1.1 200 OK"
+2026-04-05 00:57:36,989 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "leo joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 00:57:37,011 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "peter joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 00:57:37,033 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "tina joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 00:57:37,070 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "henry joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 00:57:37,091 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "mia joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 00:57:37,111 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "leo joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 00:57:37,133 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "jack joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 00:57:37,156 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/14 "HTTP/1.1 200 OK"
+2026-04-05 00:57:37,169 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "noah joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 00:57:37,190 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "diana joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 00:57:37,211 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "quinn joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 00:57:37,231 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "rachel joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 00:57:37,251 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "peter joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 00:57:37,270 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "sam joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 00:57:37,288 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "karen joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 00:57:37,307 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "noah joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 00:57:37,330 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "bob joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 00:57:37,357 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "charlie joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 00:57:37,381 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "diana joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 00:57:37,404 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "jack joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 00:57:37,426 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "mia joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 00:57:37,447 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "alice joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 00:57:37,470 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "quinn joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 00:57:37,489 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "rachel joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 00:57:37,507 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "tina joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 00:57:37,526 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "diana joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 00:57:37,559 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "charlie joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 00:57:37,602 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "leo joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 00:57:37,629 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "quinn joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 00:57:37,658 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "peter joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 00:57:37,699 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "jack joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 00:57:37,723 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "karen joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 00:57:37,757 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "rachel joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 00:57:37,777 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "frank joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 00:57:37,796 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "leo joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 00:57:37,819 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "mia joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 00:57:37,841 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "bob joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 00:57:37,864 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "eve joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 00:57:37,887 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "peter joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 00:57:51,472 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_left', 'user_id': 1, 'type': 'community_leave', 'message': "frank left your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 00:57:51,493 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_left', 'user_id': 1, 'type': 'community_leave', 'message': "tina left your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:14:57,643 [aiokafka.consumer.group_coordinator] INFO: LeaveGroup request succeeded
+2026-04-05 01:14:57,644 [community_service.consumer] INFO: Kafka consumer stopped
+2026-04-05 01:14:57,646 [app.kafka_producer] INFO: Kafka producer stopped
+2026-04-05 01:15:31,179 [app.kafka_producer] INFO: Kafka producer started
+2026-04-05 01:15:31,180 [community_service] INFO: Community service started successfully
+2026-04-05 01:15:31,181 [aiokafka.consumer.subscription_state] INFO: Updating subscribed topics to: frozenset({'user-events'})
+2026-04-05 01:15:31,207 [aiokafka.cluster] WARNING: Topic user-events is not available during auto-create initialization
+2026-04-05 01:15:31,311 [aiokafka.cluster] ERROR: Topic user-events not found in cluster metadata
+2026-04-05 01:15:31,430 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 01:15:31,539 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 01:15:31,645 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 01:15:31,754 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 01:15:31,861 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 01:15:31,967 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 01:15:32,072 [aiokafka.consumer.group_coordinator] INFO: Discovered coordinator 1 for group community-service-user-sync
+2026-04-05 01:15:32,073 [aiokafka.consumer.group_coordinator] INFO: Revoking previously assigned partitions set() for group community-service-user-sync
+2026-04-05 01:15:32,073 [aiokafka.consumer.group_coordinator] INFO: (Re-)joining group community-service-user-sync
+2026-04-05 01:15:35,079 [aiokafka.consumer.group_coordinator] INFO: Joined group 'community-service-user-sync' (generation 1) with member_id aiokafka-0.13.0-e4d0419c-8052-402b-aa25-7c63e28cb341
+2026-04-05 01:15:35,079 [aiokafka.consumer.group_coordinator] INFO: Elected group leader -- performing partition assignments using roundrobin
+2026-04-05 01:15:35,129 [aiokafka.consumer.group_coordinator] INFO: Successfully synced group community-service-user-sync with generation 1
+2026-04-05 01:15:35,131 [aiokafka.consumer.group_coordinator] INFO: Setting newly assigned partitions {TopicPartition(topic='user-events', partition=0)} for group community-service-user-sync
+2026-04-05 01:15:35,132 [community_service.consumer] INFO: Kafka consumer started, listening for user-events
+2026-04-05 01:16:45,248 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/1 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,306 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/2 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,372 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/3 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,414 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/4 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,453 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/5 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,500 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/6 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,546 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/7 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,588 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/8 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,625 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/20 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,643 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "tina joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:16:45,669 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "charlie joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:16:45,709 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/11 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,723 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "karen joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:16:45,749 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/18 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,761 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "rachel joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:16:45,785 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "diana joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:16:45,811 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/9 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,825 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "ivy joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:16:45,856 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "henry joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:16:45,876 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "eve joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:16:45,903 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/12 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,915 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "leo joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:16:45,941 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/15 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,954 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "olivia joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:16:45,980 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/19 "HTTP/1.1 200 OK"
+2026-04-05 01:16:45,993 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "sam joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:16:46,055 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "grace joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:16:46,085 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/10 "HTTP/1.1 200 OK"
+2026-04-05 01:16:46,100 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "jack joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:16:46,132 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "sam joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 01:16:46,166 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "grace joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 01:16:46,191 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "alice joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 01:16:46,220 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/13 "HTTP/1.1 200 OK"
+2026-04-05 01:16:46,233 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "mia joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 01:16:46,257 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "karen joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 01:16:46,281 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "diana joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 01:16:46,305 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "henry joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 01:16:46,328 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "olivia joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 01:16:46,351 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "leo joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 01:16:46,374 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "charlie joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 01:16:46,397 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "tina joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 01:16:46,418 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "ivy joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 01:16:46,440 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "diana joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 01:16:46,469 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "henry joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 01:16:46,496 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "eve joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 01:16:46,523 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "jack joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 01:16:46,546 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "sam joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 01:16:46,569 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "olivia joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 01:16:46,592 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "karen joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 01:16:46,644 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "mia joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 01:16:46,675 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "alice joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 01:16:46,697 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "bob joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 01:16:46,725 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/14 "HTTP/1.1 200 OK"
+2026-04-05 01:16:46,737 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "noah joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 01:16:46,758 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "leo joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 01:16:46,779 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "grace joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:46,803 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "tina joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:46,824 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "ivy joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:46,845 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "leo joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:46,866 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "eve joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:46,888 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "rachel joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:46,913 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/17 "HTTP/1.1 200 OK"
+2026-04-05 01:16:46,926 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "quinn joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:46,949 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "alice joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:46,972 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "henry joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:46,992 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "bob joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:47,014 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "frank joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:47,037 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "mia joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:47,059 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "karen joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:47,082 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "charlie joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 01:16:47,103 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "alice joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 01:16:47,126 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "diana joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 01:16:47,147 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "olivia joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 01:16:47,168 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "frank joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 01:16:47,192 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "noah joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 01:16:47,216 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "rachel joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 01:16:47,240 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "henry joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 01:16:47,280 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "sam joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 01:16:47,301 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "ivy joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 01:16:47,346 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "tina joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 01:16:47,371 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/16 "HTTP/1.1 200 OK"
+2026-04-05 01:16:47,384 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "peter joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 01:16:47,408 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "karen joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 01:16:47,430 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "sam joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 01:16:47,451 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "diana joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 01:16:47,473 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "quinn joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 01:16:47,495 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "noah joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 01:16:47,517 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "bob joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 01:16:47,537 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "ivy joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 01:16:47,560 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "rachel joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 01:16:47,581 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "jack joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 01:16:47,602 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "peter joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 01:16:47,623 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "eve joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 01:16:47,645 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "tina joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 01:16:47,681 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "jack joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 01:16:47,704 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "frank joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 01:16:47,739 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "charlie joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 01:16:47,760 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "noah joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 01:16:47,780 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "sam joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 01:16:47,803 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "ivy joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 01:16:47,825 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "henry joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 01:16:47,845 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "leo joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 01:16:47,866 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "quinn joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 01:16:47,905 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "peter joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 01:16:47,925 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "tina joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 01:16:47,945 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "jack joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 01:16:47,967 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "mia joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 01:16:48,016 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "alice joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 01:16:48,039 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "noah joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 01:17:01,702 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_left', 'user_id': 1, 'type': 'community_leave', 'message': "tina left your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 01:18:41,800 [community_service.consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 01:18:43,334 [community_service.consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 01:18:59,232 [community_service.consumer] INFO: Synced user 19 from Kafka event
+2026-04-05 01:29:32,502 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "alice joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:36:37,682 [aiokafka.consumer.group_coordinator] INFO: LeaveGroup request succeeded
+2026-04-05 12:36:37,701 [community_service.consumer] INFO: Kafka consumer stopped
+2026-04-05 12:36:37,731 [app.kafka_producer] INFO: Kafka producer stopped
+2026-04-05 12:37:50,025 [app.kafka_producer] INFO: Kafka producer started
+2026-04-05 12:37:50,025 [community_service] INFO: Community service started successfully
+2026-04-05 12:37:50,026 [aiokafka.consumer.subscription_state] INFO: Updating subscribed topics to: frozenset({'user-events'})
+2026-04-05 12:37:50,038 [aiokafka.cluster] ERROR: Topic user-events not found in cluster metadata
+2026-04-05 12:37:50,148 [aiokafka.cluster] WARNING: Topic user-events is not available during auto-create initialization
+2026-04-05 12:37:50,256 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:37:50,366 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:37:50,475 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:37:50,583 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:37:50,694 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:37:50,802 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:37:50,910 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:37:51,023 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:37:51,130 [aiokafka.consumer.group_coordinator] INFO: Discovered coordinator 1 for group community-service-user-sync
+2026-04-05 12:37:51,130 [aiokafka.consumer.group_coordinator] INFO: Revoking previously assigned partitions set() for group community-service-user-sync
+2026-04-05 12:37:51,131 [aiokafka.consumer.group_coordinator] INFO: (Re-)joining group community-service-user-sync
+2026-04-05 12:37:54,158 [aiokafka.consumer.group_coordinator] INFO: Joined group 'community-service-user-sync' (generation 1) with member_id aiokafka-0.13.0-84ae34bc-89bb-4ecc-af66-0cc987427251
+2026-04-05 12:37:54,160 [aiokafka.consumer.group_coordinator] INFO: Elected group leader -- performing partition assignments using roundrobin
+2026-04-05 12:37:54,221 [aiokafka.consumer.group_coordinator] INFO: Successfully synced group community-service-user-sync with generation 1
+2026-04-05 12:37:54,222 [aiokafka.consumer.group_coordinator] INFO: Setting newly assigned partitions {TopicPartition(topic='user-events', partition=0)} for group community-service-user-sync
+2026-04-05 12:37:54,223 [community_service.consumer] INFO: Kafka consumer started, listening for user-events
+2026-04-05 12:38:48,581 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/1 "HTTP/1.1 200 OK"
+2026-04-05 12:38:48,639 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/2 "HTTP/1.1 200 OK"
+2026-04-05 12:38:48,680 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/3 "HTTP/1.1 200 OK"
+2026-04-05 12:38:48,758 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/4 "HTTP/1.1 200 OK"
+2026-04-05 12:38:48,836 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/5 "HTTP/1.1 200 OK"
+2026-04-05 12:38:48,916 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/6 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,006 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/7 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,057 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/8 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,099 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/10 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,122 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "jack joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:38:49,151 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/16 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,166 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "peter joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:38:49,197 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "diana joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:38:49,223 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/17 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,237 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "quinn joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:38:49,262 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "grace joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:38:49,289 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/9 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,306 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "ivy joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:38:49,340 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/13 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,358 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "mia joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:38:49,390 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/18 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,405 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "rachel joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:38:49,430 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "henry joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:38:49,508 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/19 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,522 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "sam joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:38:49,557 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "eve joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:38:49,593 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/20 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,609 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "tina joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:38:49,636 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "diana joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:38:49,664 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/14 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,678 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "noah joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:38:49,704 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "henry joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:38:49,737 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/11 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,753 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "karen joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:38:49,779 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "charlie joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:38:49,805 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "alice joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:38:49,829 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "frank joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:38:49,855 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "tina joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:38:49,903 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/12 "HTTP/1.1 200 OK"
+2026-04-05 12:38:49,917 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "leo joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:38:49,942 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "ivy joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:38:49,966 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "grace joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:38:49,995 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/15 "HTTP/1.1 200 OK"
+2026-04-05 12:38:50,008 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "olivia joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:38:50,034 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "mia joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:38:50,058 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "peter joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:38:50,083 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "olivia joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:38:50,106 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "frank joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:38:50,129 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "noah joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:38:50,153 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "bob joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:38:50,177 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "jack joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:38:50,202 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "quinn joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:38:50,227 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "mia joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:38:50,268 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "alice joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:38:50,292 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "henry joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:38:50,317 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "karen joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:38:50,362 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "jack joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:38:50,387 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "rachel joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:38:50,413 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "peter joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:38:50,454 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "mia joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:38:50,480 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "henry joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:38:50,502 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "frank joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:38:50,524 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "ivy joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:38:50,550 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "leo joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:38:50,592 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "grace joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:38:50,614 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "peter joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:38:50,639 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "henry joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:38:50,663 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "noah joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:38:50,690 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "diana joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:38:50,714 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "rachel joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:38:50,742 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "bob joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:38:50,767 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "noah joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:38:50,794 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "olivia joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:38:50,820 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "bob joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:38:50,845 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "karen joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:38:50,869 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "diana joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:38:50,891 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "peter joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:38:50,916 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "quinn joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:38:50,939 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "mia joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:38:50,962 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "ivy joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:38:51,007 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "jack joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:38:51,030 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "grace joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:38:51,086 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "quinn joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:38:51,110 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "frank joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:38:51,133 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "diana joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:38:51,178 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "leo joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:38:51,201 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "peter joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:38:51,228 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "bob joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:38:51,253 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "tina joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:38:51,277 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "noah joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:38:51,302 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "ivy joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:38:51,325 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "karen joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:38:51,350 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "charlie joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:38:51,376 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "eve joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:38:51,402 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "rachel joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:38:51,426 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "ivy joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:38:51,450 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "jack joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:38:51,475 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "tina joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:38:51,497 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "frank joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:38:51,538 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "grace joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:38:51,563 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "quinn joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:38:51,586 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "diana joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:38:51,613 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "mia joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:38:51,640 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "bob joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:38:51,665 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "charlie joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:38:51,688 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "leo joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:39:04,328 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_left', 'user_id': 1, 'type': 'community_leave', 'message': "tina left your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:47:33,675 [aiokafka.consumer.fetcher] ERROR: Failed fetch messages from 1: KafkaConnectionError: Connection at kafka:9092 closed
+2026-04-05 12:47:33,678 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:33,681 [aiokafka] ERROR: Unable to update metadata from [1]
+2026-04-05 12:47:33,684 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:33,692 [aiokafka] ERROR: Unable to update metadata from [1]
+2026-04-05 12:47:33,695 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:33,695 [aiokafka.consumer.group_coordinator] ERROR: Error sending OffsetCommitRequest to node 1 [NodeNotReadyError: Attempt to send a request to node which is not ready (node id 1).] -- marking coordinator dead
+2026-04-05 12:47:33,696 [aiokafka.consumer.group_coordinator] WARNING: Marking the coordinator dead (node 1)for group community-service-user-sync.
+2026-04-05 12:47:33,778 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:33,781 [aiokafka.consumer.fetcher] ERROR: Failed fetch messages from 1: NodeNotReadyError: Attempt to send a request to node which is not ready (node id 1).
+2026-04-05 12:47:33,783 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:33,785 [aiokafka] ERROR: Unable to update metadata from [1]
+2026-04-05 12:47:33,884 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:33,887 [aiokafka.consumer.fetcher] ERROR: Failed fetch messages from 1: NodeNotReadyError: Attempt to send a request to node which is not ready (node id 1).
+2026-04-05 12:47:33,898 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:33,905 [aiokafka] ERROR: Unable to update metadata from [1]
+2026-04-05 12:47:33,993 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:33,996 [aiokafka.consumer.fetcher] ERROR: Failed fetch messages from 1: NodeNotReadyError: Attempt to send a request to node which is not ready (node id 1).
+2026-04-05 12:47:33,998 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:33,999 [aiokafka] ERROR: Unable to update metadata from [1]
+2026-04-05 12:47:34,099 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:34,100 [aiokafka.consumer.fetcher] ERROR: Failed fetch messages from 1: NodeNotReadyError: Attempt to send a request to node which is not ready (node id 1).
+2026-04-05 12:47:34,104 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:34,106 [aiokafka] ERROR: Unable to update metadata from [1]
+2026-04-05 12:47:34,202 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:34,205 [aiokafka.consumer.fetcher] ERROR: Failed fetch messages from 1: NodeNotReadyError: Attempt to send a request to node which is not ready (node id 1).
+2026-04-05 12:47:34,211 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:34,213 [aiokafka] ERROR: Unable to update metadata from [1]
+2026-04-05 12:47:34,328 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:34,330 [aiokafka.consumer.fetcher] ERROR: Failed fetch messages from 1: NodeNotReadyError: Attempt to send a request to node which is not ready (node id 1).
+2026-04-05 12:47:34,336 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:34,337 [aiokafka] ERROR: Unable to update metadata from [1]
+2026-04-05 12:47:34,435 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:34,445 [aiokafka.consumer.fetcher] ERROR: Failed fetch messages from 1: NodeNotReadyError: Attempt to send a request to node which is not ready (node id 1).
+2026-04-05 12:47:34,451 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:34,456 [aiokafka] ERROR: Unable to update metadata from [1]
+2026-04-05 12:47:34,552 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:34,557 [aiokafka.consumer.fetcher] ERROR: Failed fetch messages from 1: NodeNotReadyError: Attempt to send a request to node which is not ready (node id 1).
+2026-04-05 12:47:34,567 [aiokafka] ERROR: Unable connect to node with id 1: [Errno 111] Connect call failed ('172.22.0.10', 9092)
+2026-04-05 12:47:34,569 [aiokafka] ERROR: Unable to update metadata from [1]
+2026-04-05 12:47:39,621 [aiokafka] ERROR: Unable connect to "kafka:9092": [Errno 111] Connect call failed ('172.22.0.15', 9092)
+2026-04-05 12:47:39,778 [asyncio] ERROR: Unclosed AIOKafkaProducer
+producer: <aiokafka.producer.producer.AIOKafkaProducer object at 0x7b3ad72457f0>
+2026-04-05 12:51:43,031 [app.kafka_producer] INFO: Kafka producer started
+2026-04-05 12:51:43,032 [community_service] INFO: Community service started successfully
+2026-04-05 12:51:43,034 [aiokafka.consumer.subscription_state] INFO: Updating subscribed topics to: frozenset({'user-events'})
+2026-04-05 12:51:43,157 [aiokafka.cluster] WARNING: Topic user-events is not available during auto-create initialization
+2026-04-05 12:51:43,281 [aiokafka.cluster] WARNING: Topic user-events is not available during auto-create initialization
+2026-04-05 12:51:43,403 [aiokafka.cluster] WARNING: Topic user-events is not available during auto-create initialization
+2026-04-05 12:51:43,516 [aiokafka.cluster] WARNING: Topic user-events is not available during auto-create initialization
+2026-04-05 12:51:43,631 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:51:43,749 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:51:43,890 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:51:44,004 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:51:44,123 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:51:44,232 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:51:44,341 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:51:44,449 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:51:44,555 [aiokafka.consumer.group_coordinator] ERROR: Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+2026-04-05 12:51:44,664 [aiokafka.consumer.group_coordinator] INFO: Discovered coordinator 1 for group community-service-user-sync
+2026-04-05 12:51:44,665 [aiokafka.consumer.group_coordinator] INFO: Revoking previously assigned partitions set() for group community-service-user-sync
+2026-04-05 12:51:44,665 [aiokafka.consumer.group_coordinator] INFO: (Re-)joining group community-service-user-sync
+2026-04-05 12:51:47,690 [aiokafka.consumer.group_coordinator] INFO: Joined group 'community-service-user-sync' (generation 1) with member_id aiokafka-0.13.0-222d9689-6eaa-4c31-98fb-16d2d7aa04e7
+2026-04-05 12:51:47,691 [aiokafka.consumer.group_coordinator] INFO: Elected group leader -- performing partition assignments using roundrobin
+2026-04-05 12:51:47,735 [aiokafka.consumer.group_coordinator] INFO: Successfully synced group community-service-user-sync with generation 1
+2026-04-05 12:51:47,736 [aiokafka.consumer.group_coordinator] INFO: Setting newly assigned partitions {TopicPartition(topic='user-events', partition=0)} for group community-service-user-sync
+2026-04-05 12:51:47,737 [community_service.consumer] INFO: Kafka consumer started, listening for user-events
+2026-04-05 12:52:25,982 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/1 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,028 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/2 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,107 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/3 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,184 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/4 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,259 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/5 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,335 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/6 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,420 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/7 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,496 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/8 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,532 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/13 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,548 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "mia joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:52:26,572 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "bob joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:52:26,594 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "charlie joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:52:26,621 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/12 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,633 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "leo joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:52:26,676 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/14 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,686 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "noah joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:52:26,710 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/19 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,723 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "sam joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:52:26,745 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "diana joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:52:26,770 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/10 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,781 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "jack joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:52:26,802 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "eve joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:52:26,853 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/11 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,866 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "karen joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:52:26,891 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/9 "HTTP/1.1 200 OK"
+2026-04-05 12:52:26,904 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 1, 'type': 'community_join', 'message': "ivy joined your community 'Python Developers'", 'reference_id': 1}
+2026-04-05 12:52:26,926 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "alice joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:52:26,946 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "eve joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:52:26,968 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "diana joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:52:27,006 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "grace joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:52:27,030 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/16 "HTTP/1.1 200 OK"
+2026-04-05 12:52:27,041 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "peter joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:52:27,067 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/20 "HTTP/1.1 200 OK"
+2026-04-05 12:52:27,079 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "tina joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:52:27,105 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/17 "HTTP/1.1 200 OK"
+2026-04-05 12:52:27,115 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 2, 'type': 'community_join', 'message': "quinn joined your community 'Web Dev Hub'", 'reference_id': 2}
+2026-04-05 12:52:27,137 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "frank joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:52:27,160 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "sam joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:52:27,183 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "bob joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:52:27,209 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/15 "HTTP/1.1 200 OK"
+2026-04-05 12:52:27,219 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "olivia joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:52:27,243 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "alice joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:52:27,264 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "noah joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:52:27,291 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/18 "HTTP/1.1 200 OK"
+2026-04-05 12:52:27,303 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "rachel joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:52:27,324 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 3, 'type': 'community_join', 'message': "diana joined your community 'Data Science Lab'", 'reference_id': 3}
+2026-04-05 12:52:27,346 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "quinn joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:52:27,369 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "frank joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:52:27,408 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "bob joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:52:27,430 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "tina joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:52:27,453 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "eve joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:52:27,474 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "ivy joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:52:27,496 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "mia joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:52:27,518 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "peter joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:52:27,542 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 4, 'type': 'community_join', 'message': "rachel joined your community 'DevOps Corner'", 'reference_id': 4}
+2026-04-05 12:52:27,565 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "noah joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:52:27,628 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "alice joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:52:27,649 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "rachel joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:52:27,672 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "diana joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:52:27,694 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "olivia joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:52:27,717 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "leo joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:52:27,740 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "quinn joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:52:27,766 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "jack joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:52:27,790 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "ivy joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:52:27,818 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 5, 'type': 'community_join', 'message': "mia joined your community 'Open Source Cafe'", 'reference_id': 5}
+2026-04-05 12:52:27,841 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "bob joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:52:27,865 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "charlie joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:52:27,887 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "peter joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:52:27,909 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "quinn joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:52:27,931 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "rachel joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:52:27,957 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "grace joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:52:27,979 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "karen joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:52:28,002 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 6, 'type': 'community_join', 'message': "henry joined your community 'Mobile App Builders'", 'reference_id': 6}
+2026-04-05 12:52:28,025 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "frank joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:52:28,047 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "leo joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:52:28,070 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "charlie joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:52:28,093 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "henry joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:52:28,117 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "sam joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:52:28,138 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "karen joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:52:28,167 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "peter joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:52:28,190 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "eve joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:52:28,215 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "jack joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:52:28,254 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "noah joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:52:28,300 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 7, 'type': 'community_join', 'message': "tina joined your community 'Cloud Architecture'", 'reference_id': 7}
+2026-04-05 12:52:28,336 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "jack joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:52:28,359 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "charlie joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:52:28,382 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "olivia joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:52:28,404 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "alice joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:52:28,429 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "peter joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:52:28,452 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "rachel joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:52:28,475 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "eve joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:52:28,499 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "leo joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:52:28,522 [app.kafka_producer] INFO: Sent to community-events: {'event': 'community_joined', 'user_id': 8, 'type': 'community_join', 'message': "bob joined your community 'Cybersecurity Hub'", 'reference_id': 8}
+2026-04-05 12:58:53,154 [community_service.consumer] INFO: Synced user 19 from Kafka event
+2026-04-05 13:00:57,987 [community_service.consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 13:00:58,480 [community_service.consumer] INFO: Synced user 1 from Kafka event

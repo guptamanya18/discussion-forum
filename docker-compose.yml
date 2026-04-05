@@ -1,0 +1,288 @@
+x-common-env: &common-env
+  SECRET_KEY: ${SECRET_KEY}
+  ALGORITHM: ${ALGORITHM}
+  ACCESS_TOKEN_EXPIRE_MINUTES: ${ACCESS_TOKEN_EXPIRE_MINUTES}
+  TZ: Asia/Kolkata
+
+x-pg-env: &pg-env
+  TZ: Asia/Kolkata
+  PGTZ: Asia/Kolkata
+
+services:
+  # ── Database servers (one per microservice) ──────────────────────
+  postgres_user:
+    image: postgres:16-alpine
+    environment:
+      <<: *pg-env
+      POSTGRES_USER: forum_user
+      POSTGRES_PASSWORD: forum_pass
+      POSTGRES_DB: user_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - pg_user_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U forum_user -d user_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  postgres_thread:
+    image: postgres:16-alpine
+    environment:
+      <<: *pg-env
+      POSTGRES_USER: forum_user
+      POSTGRES_PASSWORD: forum_pass
+      POSTGRES_DB: thread_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - pg_thread_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U forum_user -d thread_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  postgres_comment:
+    image: postgres:16-alpine
+    environment:
+      <<: *pg-env
+      POSTGRES_USER: forum_user
+      POSTGRES_PASSWORD: forum_pass
+      POSTGRES_DB: comment_db
+    ports:
+      - "5436:5432"
+    volumes:
+      - pg_comment_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U forum_user -d comment_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  postgres_community:
+    image: postgres:16-alpine
+    environment:
+      <<: *pg-env
+      POSTGRES_USER: forum_user
+      POSTGRES_PASSWORD: forum_pass
+      POSTGRES_DB: community_db
+    ports:
+      - "5437:5432"
+    volumes:
+      - pg_community_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U forum_user -d community_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  postgres_notification:
+    image: postgres:16-alpine
+    environment:
+      <<: *pg-env
+      POSTGRES_USER: forum_user
+      POSTGRES_PASSWORD: forum_pass
+      POSTGRES_DB: notification_db
+    ports:
+      - "5438:5432"
+    volumes:
+      - pg_notification_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U forum_user -d notification_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+
+  # ── Microservices ────────────────────────────────────────────────
+  user_service:
+    build:
+      context: ./backend/services/user_service
+      dockerfile: ../../Dockerfile.service
+    environment:
+      <<: *common-env
+      DATABASE_URL: postgresql+asyncpg://forum_user:forum_pass@postgres_user:5432/user_db
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      FRONTEND_URL: http://localhost:3000
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "8002:8002"
+    depends_on:
+      postgres_user:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./backend/logs/user_service:/app/logs
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8002
+
+  thread_service:
+    
+    build:
+      context: ./backend/services/thread_service
+      dockerfile: ../../Dockerfile.service
+    environment:
+      <<: *common-env
+      DATABASE_URL: postgresql+asyncpg://forum_user:forum_pass@postgres_thread:5432/thread_db
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "8003:8003"
+    depends_on:
+      postgres_thread:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./backend/logs/thread_service:/app/logs
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8003
+
+  comment_service:
+    build:
+      context: ./backend/services/comment_service
+      dockerfile: ../../Dockerfile.service
+    environment:
+      <<: *common-env
+      DATABASE_URL: postgresql+asyncpg://forum_user:forum_pass@postgres_comment:5432/comment_db
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "8005:8005"
+    depends_on:
+      postgres_comment:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./backend/logs/comment_service:/app/logs
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8005
+  
+  community_service:
+    build:
+      context: ./backend/services/community_service
+      dockerfile: ../../Dockerfile.service
+    environment:
+      <<: *common-env
+      DATABASE_URL: postgresql+asyncpg://forum_user:forum_pass@postgres_community:5432/community_db
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "8006:8006"
+    depends_on:
+      postgres_community:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./backend/logs/community_service:/app/logs
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8006
+  
+  notification_service:
+    build:
+      context: ./backend/services/notification_service
+      dockerfile: ../../Dockerfile.service
+    environment:
+      <<: *common-env
+      DATABASE_URL: postgresql+asyncpg://forum_user:forum_pass@postgres_notification:5432/notification_db
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "8007:8007"
+    depends_on:
+      postgres_notification:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./backend/logs/notification_service:/app/logs
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8007
+
+  # ── Kafka ────────────────────────────────────────────────────────
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.6.0
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: confluentinc/cp-kafka:7.6.0
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    healthcheck:
+      test: ["CMD", "kafka-broker-api-versions", "--bootstrap-server", "localhost:9092"]
+      interval: 10s
+      timeout: 10s
+      retries: 5  
+
+  # ── Mailpit (dev email catcher) ─────────────────────────────────
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "8025:8025"   # Web UI
+      - "1025:1025"   # SMTP
+    environment:
+      TZ: Asia/Kolkata
+
+  # ── Redis (caching) ───────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  gateway:
+    build:
+      context: ./backend/gateway
+      dockerfile: ../Dockerfile.gateway
+    environment:
+      <<: *common-env
+      USER_SERVICE_URL: http://user_service:8002
+      THREAD_SERVICE_URL: http://thread_service:8003
+      COMMENT_SERVICE_URL: http://comment_service:8005
+      COMMUNITY_SERVICE_URL: http://community_service:8006
+      NOTIFICATION_SERVICE_URL: http://notification_service:8007
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "8000:8000"
+    depends_on:
+      - user_service
+      - thread_service
+      - comment_service
+      - community_service
+      - notification_service
+      - redis
+    volumes:
+      - ./backend/logs/gateway:/app/logs
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - gateway
+
+volumes:
+  pg_user_data:
+  pg_thread_data:
+  pg_comment_data:
+  pg_community_data:
+  pg_notification_data:

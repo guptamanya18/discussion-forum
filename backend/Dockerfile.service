@@ -1,0 +1,13 @@
+FROM python:3.13-slim
+
+WORKDIR /app
+
+# Install uv
+RUN pip install uv
+
+# Copy project definition and install deps
+COPY pyproject.toml .
+RUN uv pip install --system .
+
+# Copy source
+COPY app ./app
