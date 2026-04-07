@@ -448,6 +448,10 @@ async def change_member_role(
     if not membership:
         raise NotFoundException("User is not a member of this community")
 
+    # Protect the community creator — their role cannot be changed
+    if user_id == community.created_by:
+        raise ForbiddenException("Cannot change the role of the community owner")
+
     membership.role = role
     await db.commit()
 

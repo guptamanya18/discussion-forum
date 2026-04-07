@@ -281,6 +281,7 @@ if (broadcastEvent.type === 'avatar_update' && broadcastEvent.user_id) {
     });
     setComments(prev => updateAuthorAvatar(prev));
 }
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [broadcastEvent, id, navigate, thread?.author?.id]);
 
 const fetchThread = async () => {
@@ -381,7 +382,7 @@ await api.put('/threads/' + id, { title: editTitle, description: editDescription
 setEditOpen(false);
 fetchThread();
 } catch (err) {
-console.error('Failed to edit thread');
+setSnack({ open: true, message: err.response?.data?.detail || 'Failed to edit thread', severity: 'error' });
 }
 };
 
@@ -407,7 +408,7 @@ try {
 await api.put('/comments/' + commentId, { content });
 fetchComments();
 } catch (err) {
-console.error('Failed to edit comment');
+setSnack({ open: true, message: err.response?.data?.detail || 'Failed to edit comment', severity: 'error' });
 }
 };
 

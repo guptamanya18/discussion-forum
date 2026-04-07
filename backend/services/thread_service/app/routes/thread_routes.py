@@ -16,7 +16,7 @@ from app.schemas.like import LikeResponse, LikeUserResponse
 from app.schemas.thread import ThreadCreate, ThreadList, ThreadListPaginated, ThreadResponse, ThreadUpdate
 from app.core.dependencies import get_current_user, get_current_user_optional
 from app.core.permissions import ensure_owner_or_staff, ensure_can_delete
-from app.core.exceptions import NotFoundException, NotAuthorizedException, BadRequestException
+from app.core.exceptions import NotFoundException, NotAuthorizedException, BadRequestException, ForbiddenException
 from app.services.like_service import toggle_like_thread
 from app.kafka_producer import kafka_producer
 
@@ -281,7 +281,7 @@ async def update_thread(
     if not thread:
         raise NotFoundException("Thread not found")
     if current_user.id != thread.created_by:
-        raise NotAuthorizedException("You can only edit your own threads")
+        raise ForbiddenException("You can only edit your own threads")
 
     if update.title is not None:
         thread.title = update.title

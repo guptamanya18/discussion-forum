@@ -196,7 +196,7 @@ async def update_comment(
     if not comment:
         raise NotFoundException("Comment not found")
     if current_user.id != comment.author_id:
-        raise NotAuthorizedException("You can only edit your own comments")
+        raise ForbiddenException("You can only edit your own comments")
 
     if update.content is not None:
         comment.content = update.content

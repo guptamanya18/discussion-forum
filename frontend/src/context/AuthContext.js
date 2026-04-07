@@ -156,7 +156,7 @@ export function AuthProvider({children}) {
                         fetchUserRef.current();
                     }
                     // Broadcast events go to broadcastEvent state
-                    if (['thread_like_update', 'comment_like_update', 'new_thread', 'new_comment_broadcast', 'thread_deleted', 'comment_deleted', 'thread_edited', 'comment_edited'].includes(data.type)) {
+                    if (['thread_like_update', 'comment_like_update', 'new_thread', 'new_comment_broadcast', 'thread_deleted', 'comment_deleted', 'thread_edited', 'comment_edited', 'avatar_update'].includes(data.type)) {
                         setBroadcastEvent({...data, _ts: Date.now()});
                         return;
                     }

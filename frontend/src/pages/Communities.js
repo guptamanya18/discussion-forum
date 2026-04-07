@@ -70,7 +70,7 @@ function Communities() {
   };
 
   return (
-    <Box sx={{ maxWidth: '1400px', mx: 'auto', px: { xs: 2, sm: 3, md: 4 }, mt: 3, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
+    <Box sx={{ maxWidth: '1400px', mx: 'auto', px: { xs: 2, sm: 3, md: 4 }, mt: 3, width: '100%', boxSizing: 'border-box' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
           <GroupsIcon sx={{ fontSize: 36, color: 'primary.main' }} />
@@ -103,9 +103,9 @@ function Communities() {
         </Card>
       )}
 
-      <Grid container spacing={3} sx={{ width: '100%', m: 0 }}>
+      <Grid container spacing={3}>
         {communities.map((c) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} xl={2.4} key={c.id}>
+          <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={c.id}>
             <Card sx={{ 
               height: '100%', 
               display: 'flex', 
