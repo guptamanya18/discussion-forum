@@ -1,11 +1,11 @@
-# Discussion Forum — Full-Stack Microservices Platform
+# ◈ Advanced Real-Time Discussion Forum
 
 A **production-grade, Reddit-style discussion forum** with a **React frontend** and **five independent FastAPI microservices** behind a single **API Gateway**. Each service owns its own **PostgreSQL database**, runs in its own **Docker container**, and communicates through a centralized gateway. The system features **httpOnly cookie-based JWT auth**, **Redis caching**, **Redis rate limiting**, **JWT token blacklisting**, **Kafka event-driven notifications**, **email-based password reset** (via Mailpit), **real-time WebSocket broadcasts**, **rotating file logging**, **community slugs**, **keyword-based search**, **saved/bookmarked posts**, and a polished **dark/light theme UI** with an orange-accent Reddit-inspired design.
 
 ---
 
 
-## Architecture Overview
+## ◈ Architecture Overview
 
 The platform is split into **independent microservices** — each responsible for a single domain. A client (browser, Postman, mobile app) sends all requests to one entry point: the **API Gateway** on port 8000. The gateway inspects the URL path and forwards the request to the correct backend service, transparently passing headers, query parameters, and request bodies.
 
@@ -58,7 +58,7 @@ Logging: RotatingFileHandler (5MB, 3 backups) per service → volume-mounted to 
 
 ---
 
-## High-Level System Flowcharts
+## ◈ High-Level System Flowcharts
 
 ### Request Routing Flow (with Rate Limiting & Caching)
 
@@ -272,7 +272,7 @@ Each service (Thread, Comment, Community, Notification) has its own `users` tabl
 
 ---
 
-## Tech Stack
+## ◈ Tech Stack
 
 ### Backend
 
@@ -310,7 +310,7 @@ Each service (Thread, Comment, Community, Notification) has its own `users` tabl
 
 ---
 
-## Complete Project Structure
+## ◈ Complete Project Structure
 
 ```
 discussion-forum/
@@ -495,7 +495,7 @@ discussion-forum/
 
 ---
 
-## Backend — Services Breakdown
+## ◈ Backend — Services Breakdown
 
 ### 1. API Gateway (Port 8000)
 
@@ -646,7 +646,7 @@ The gateway sits between all clients and microservices. It is responsible for **
 
 ---
 
-## Database Architecture
+## ◈ Database Architecture
 
 Five independent PostgreSQL databases, one per service:
 
@@ -662,7 +662,7 @@ Each service (except User) maintains a local `users` table synced on-demand from
 
 ---
 
-## Frontend — React SPA
+## ◈ Frontend — React SPA
 
 ### Pages & Features
 
@@ -737,7 +737,7 @@ Custom MUI theme with dark/light toggle (persisted in localStorage):
 
 ---
 
-## Complete API Reference
+## ◈ Complete API Reference
 
 All requests go through the API Gateway at `http://localhost:8000`.
 
@@ -830,35 +830,35 @@ All requests go through the API Gateway at `http://localhost:8000`.
 
 ---
 
-## User Roles & Permissions
+## ◈ User Roles & Permissions
 
 ### System-Level Roles
 
 | Action | Member | Moderator | Admin |
 |---|---|---|---|
-| Register / Login / View content | ✅ | ✅ | ✅ |
-| Create threads, comments, communities | ✅ | ✅ | ✅ |
-| Like threads and comments | ✅ | ✅ | ✅ |
-| Edit / Delete own content | ✅ | ✅ | ✅ |
-| Update own profile | ✅ | ✅ | ✅ |
-| Delete members' content | ❌ | ✅ | ✅ |
-| Delete moderator/admin content | ❌ | ❌ | ✅ |
-| View user lists + mod stats | ❌ | ✅ | ✅ |
-| Change user roles | ❌ | ❌ | ✅ |
-| Delete users | ❌ | ❌ | ✅ |
-| See comment delete button | ❌ | ✅ | ✅ |
+| Register / Login / View content | ✓ | ✓ | ✓ |
+| Create threads, comments, communities | ✓ | ✓ | ✓ |
+| Like threads and comments | ✓ | ✓ | ✓ |
+| Edit / Delete own content | ✓ | ✓ | ✓ |
+| Update own profile | ✓ | ✓ | ✓ |
+| Delete members' content | ✗ | ✓ | ✓ |
+| Delete moderator/admin content | ✗ | ✗ | ✓ |
+| View user lists + mod stats | ✗ | ✓ | ✓ |
+| Change user roles | ✗ | ✗ | ✓ |
+| Delete users | ✗ | ✗ | ✓ |
+| See comment delete button | ✗ | ✓ | ✓ |
 
 ### Delete Permission Matrix (`ensure_can_delete`)
 
 | Deleter Role | Can Delete Member Content | Can Delete Moderator Content | Can Delete Admin Content |
 |---|---|---|---|
-| Member | Own only | ❌ | ❌ |
-| Moderator | ✅ | Own only | ❌ |
-| Admin | ✅ | ✅ | ✅ |
+| Member | Own only | ✗ | ✗ |
+| Moderator | ✓ | Own only | ✗ |
+| Admin | ✓ | ✓ | ✓ |
 
 ---
 
-## Docker Infrastructure
+## ◈ Docker Infrastructure
 
 ### All 15 Containers
 
@@ -896,22 +896,6 @@ Services wait for their dependencies via `depends_on: condition: service_healthy
 
 ---
 
-## Environment Variables
-
-### `.env` (Root — shared across services)
-
-| Variable | Value | Purpose |
-|---|---|---|
-| `SECRET_KEY` | `supersecretkey` | JWT signing secret |
-| `ALGORITHM` | `HS256` | JWT algorithm |
-| `ACCESS_TOKEN_EXPIRE_MINUTES` | `90` | JWT token lifetime |
-| `USER_SERVICE_URL` | `http://localhost:8002` | Gateway local dev |
-| `THREAD_SERVICE_URL` | `http://localhost:8003` | Gateway local dev |
-| `COMMENT_SERVICE_URL` | `http://localhost:8005` | Gateway local dev |
-| `SMTP_HOST` | `localhost` | SMTP server for local dev |
-| `SMTP_PORT` | `1025` | Mailpit SMTP port |
-| `FRONTEND_URL` | `http://localhost:3000` | Used in reset email links |
-
 ### Docker Compose Environment (Per Service)
 
 | Variable | Example | Services |
@@ -925,7 +909,7 @@ Services wait for their dependencies via `depends_on: condition: service_healthy
 
 ---
 
-## Quick Start Guide
+## ◈ Quick Start Guide
 
 ### Prerequisites
 
@@ -989,7 +973,7 @@ python backend/seed_data.py
 
 ---
 
-## Logging
+## ◈ Logging
 
 All 6 services use Python's `RotatingFileHandler` for persistent logging:
 
@@ -1012,7 +996,7 @@ backend/logs/
 
 ---
 
-## Detailed Documentation
+## ◈ Detailed Documentation
 
 For in-depth coverage, see the `Docs/` folder:
 
@@ -1024,7 +1008,7 @@ For in-depth coverage, see the `Docs/` folder:
 
 ---
 
-## Seed Data Script
+## ◈ Seed Data Script
 
 `backend/seed_data.py` populates the forum via API calls through the gateway:
 
@@ -1042,7 +1026,7 @@ For in-depth coverage, see the `Docs/` folder:
 
 ---
 
-## Testing Guide
+## ◈ Testing Guide
 
 ### Browser Testing
 
@@ -1114,7 +1098,7 @@ pytest tests/test_redis.py -v
 
 ---
 
-## Database Commands
+## ◈ Database Commands
 
 ```bash
 # View all users
@@ -1140,7 +1124,7 @@ docker compose up --build -d
 
 ---
 
-## Design Decisions
+## ◈ Design Decisions
 
 | Decision | Rationale |
 |---|---|
@@ -1166,7 +1150,7 @@ docker compose up --build -d
 
 ---
 
-## Stopping & Cleanup
+## ◈ Stopping & Cleanup
 
 ```bash
 # Stop (data preserved)
@@ -1185,7 +1169,7 @@ docker compose logs -f notification_service
 
 ---
 
-## Port Reference
+## ◈ Port Reference
 
 | Port | Service | Purpose |
 |---|---|---|
