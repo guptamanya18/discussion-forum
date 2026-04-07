@@ -1,3 +1,4 @@
+"""This stores basic user information needed for the thread service."""
 from sqlalchemy import Column, Integer, String, DateTime, func
 from app.database import Base
 

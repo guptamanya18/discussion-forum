@@ -1,103 +1,144 @@
-# Discussion Forum — Full-Stack Microservices Platform
+# 🚀 Real-Time Community Discussion Platform
 
-A **production-grade, Reddit-style discussion forum** with a **React frontend** and **six independent FastAPI microservices** behind a single **API Gateway**. Each service owns its own **PostgreSQL database**, runs in its own **Docker container**, and communicates through a centralized gateway. The system features **httpOnly cookie-based JWT auth**, **Redis caching**, **Redis rate limiting**, **JWT token blacklisting**, **Kafka event-driven notifications**, **email-based password reset** (via Mailpit), **real-time WebSocket broadcasts**, **rotating file logging**, **community slugs**, **keyword-based search**, and a polished **dark/light theme UI**.
-
----
-
-## Table of Contents
-
-- [Architecture Overview](#architecture-overview)
-- [High-Level System Flowcharts](#high-level-system-flowcharts)
-- [Tech Stack](#tech-stack)
-- [Complete Project Structure](#complete-project-structure)
-- [Backend — Services Breakdown](#backend--services-breakdown)
-  - [API Gateway (Port 8000)](#1-api-gateway-port-8000)
-  - [User & Auth Service (Port 8002)](#2-user--auth-service-port-8002)
-  - [Thread Service (Port 8003)](#3-thread-service-port-8003)
-  - [Comment Service (Port 8005)](#4-comment-service-port-8005)
-  - [Community Service (Port 8006)](#5-community-service-port-8006)
-  - [Notification Service (Port 8007)](#6-notification-service-port-8007)
-- [Database Architecture](#database-architecture)
-- [Frontend — React SPA](#frontend--react-spa)
-  - [Pages & Features](#pages--features)
-  - [Dark Theme Design System](#dark-theme-design-system)
-  - [Authentication Flow](#authentication-flow)
-  - [Real-Time WebSocket Notifications](#real-time-websocket-notifications)
-- [Complete API Reference](#complete-api-reference)
-- [User Roles & Permissions](#user-roles--permissions)
-- [Docker Infrastructure](#docker-infrastructure)
-- [Environment Variables](#environment-variables)
-- [Quick Start Guide](#quick-start-guide)
-- [Seed Data Script](#seed-data-script)
-- [Testing Guide](#testing-guide)
-- [Database Commands](#database-commands)
-- [Design Decisions](#design-decisions)
-- [Port Reference](#port-reference)
+A **production-grade, Reddit-style microservices platform** with real-time updates using **Kafka** and **WebSockets**. This project demonstrates a highly scalable architecture with independent service boundaries, advanced security patterns, and performance optimizations.
 
 ---
 
-## Architecture Overview
+## ✨ Features
 
-The platform is split into **independent microservices** — each responsible for a single domain. A client (browser, Postman, mobile app) sends all requests to one entry point: the **API Gateway** on port 8000. The gateway inspects the URL path and forwards the request to the correct backend service, transparently passing headers, query parameters, and request bodies.
-
-The **React frontend** runs on port 3000, communicates with the gateway via Axios HTTP calls, and maintains a persistent **WebSocket** connection to the Notification Service for real-time push alerts and broadcast events.
-
-```
-+------------------------------------------------------------------+
-|                        CLIENT LAYER                              |
-|                                                                  |
-|   +---------------------------+    +-------------------------+   |
-|   |   React SPA (:3000)      |    |  Postman / curl / App   |   |
-|   |                           |    |                         |   |
-|   |  - Dark/Light Theme (MUI)|    +------------+------------+   |
-|   |  - 15 Pages              |                 |                 |
-|   |  - AuthContext + JWT      |                 |                 |
-|   |  - WebSocket Client       |                 |                 |
-|   +------------+--------------+                 |                 |
-|                |                                |                 |
-+----------------|--------------------------------|----------------+
-                 |  HTTP (REST)                   |
-                 |  ws:// (WebSocket)             |
-                 v                                v
-+------------------------------------------------------------------+
-|                     API GATEWAY (:8000)                           |
-|                                                                  |
-|   Routes requests → correct microservice                         |
-|   Redis caching (GET) + cache invalidation (POST/PUT/DELETE)     |
-|   Redis rate limiting (sliding window, per-client)               |
-|   JWT token blacklisting (logout invalidation)                   |
-|   Forwards ALL headers (Authorization, Content-Type)             |
-+--+----------+----------+-----------+----------+------------------+
-   |          |          |           |          |
-   v          v          v           v          v
-+------+  +------+  +--------+  +-------+  +---------+
-| User |  |Thread|  |Comment |  |Commun.|  | Notif.  |
-| :8002|  | :8003|  | :8005  |  | :8006 |  | :8007   |
-+--+---+  +--+---+  +---+----+  +---+---+  +----+----+
-   |         |           |          |            |
-   v         v           v          v            v
-+------+  +------+  +--------+  +-------+  +---------+
-| user |  |thread|  |comment |  |commun.|  | notif.  |
-| _db  |  | _db  |  | _db    |  | _db   |  | _db     |
-+------+  +------+  +--------+  +-------+  +---------+
-
-Infrastructure: Kafka (event bus) + Redis (cache/rate limit/blacklist) + Mailpit (dev email)
-Logging: RotatingFileHandler (5MB, 3 backups) per service → volume-mounted to backend/logs/
-```
-
-**Total: 15 Docker containers** = 5 PostgreSQL databases + 5 microservices + 1 API gateway + Kafka + ZooKeeper + Redis + Mailpit
+- 🔐 **Secure Authentication**: HttpOnly cookie-based JWT flow with **manual blacklisting** in Redis on logout for instant session revocation.
+- 🧵 **Thread & Nested Comments**: Supports infinite nesting of replies with soft-delete capabilities and markdown descriptions.
+- ❤️ **Real-Time Engagement**: Like/Unlike system with live count updates across the platform.
+- 🔔 **Intelligent Notifications**: Kafka-based event streaming that triggers WebSocket push alerts for replies, mentions, and new content.
+- ⚡ **API Gateway Power**: Custom FastAPI Gateway handling **Reverse Proxy**, **Redis Caching** (60s TTL), and **Sliding Window Rate Limiting**.
+- 📬 **Mod-Level Control**: Reporting system for community moderation and "Pinned" threads for high-visibility content.
+- 🏗️ **Infrastructure isolation**: Dockerized architecture with **5 isolated PostgreSQL databases**, Kafka, Redis, and Mailpit for email testing.
+- 🎨 **Modern UI**: Polished React (MUI) frontend with **Dynamic Dark/Light Themes** and Reddit-inspired orange accents.
 
 ---
 
-## High-Level System Flowcharts
+## 🏗️ Architecture Overview
 
-### Request Routing Flow (with Rate Limiting & Caching)
+The system follows a **Microservices Architecture** with a **Clean Separation of Concerns**. Each service is independent, owns its own data, and communicates asynchronously via an event bus.
 
+```mermaid
+graph TB
+    subgraph Client Layer
+        REACT["React SPA<br/>(MUI + Axios + WS)"]
+    end
+
+    subgraph API Gateway Layer
+        GW["FastAPI Gateway :8000<br/>(Reverse Proxy + Auth Guard)"]
+        REDIS["Redis :6379<br/>(Cache · Rate Limit · Blacklist)"]
+    end
+
+    subgraph Microservices Layer
+        US["User Service :8002<br/>(Auth/Profiles)"]
+        TS["Thread Service :8003<br/>(Posts/Likes/Reports)"]
+        CS["Comment Service :8005<br/>(Replies/Nesting)"]
+        CMS["Community Service :8006<br/>(Groups/Membership)"]
+        NS["Notification Service :8007<br/>(Real-time WS)"]
+    end
+
+    subgraph Infrastructure
+        KAFKA["Apache Kafka :9092<br/>(Event Bus)"]
+        UDB[("5x Postgres DBs")]
+        MAIL["Mailpit (Email Dev)"]
+    end
+
+    REACT --> GW
+    GW <--> REDIS
+    GW --> US & TS & CS & CMS & NS
+    US & TS & CS & CMS & NS --> UDB
+    TS & CS & CMS -->|"Events"| KAFKA
+    KAFKA --> NS
+    NS -.->|"Push"| REACT
 ```
-  Client Request
-       |
-       v
-  +----+-----+
+
+---
+
+## 🔄 System Flow: Real-Time Notification
+
+This flow demonstrates the power of **Event-Driven Architecture** in this project:
+
+1. **User A** posts a reply via the **Comment Service**.
+2. **Comment Service** saves to DB and publishes a `new_comment` event to **Kafka**.
+3. **Notification Service** (Consumer) picks up the event immediately.
+4. It identifies **User B** (the thread author) and checks their active **WebSocket** connection.
+5. Notification is pushed directly to **User B's** browser UI in milliseconds.
+*This ensures the main Comment Service is never blocked by notification logic.*
+
+---
+
+## ⚙️ Tech Stack
+
+### 🔹 Backend & Logic
+- **FastAPI**: Asynchronous, high-performance Python framework.
+- **SQLAlchemy (Async)**: Modern ORM for non-blocking database operations.
+- **PostgreSQL**: Industry-standard relational database (Isolated per service).
+- **AIOKafka**: Asynchronous Kafka client for distributed event streaming.
+
+### 🔹 Frontend & UI
+- **React (v18)**: Component-based UI logic.
+- **Material UI (MUI)**: Professional design system with custom theming.
+- **Axios**: Interceptors for automatic JWT cookie handling.
+
+### 🔹 Infrastructure & DevOps
+- **Docker & Docker Compose**: 15 containers orchestration.
+- **Redis**: Multi-purpose layer for **Caching**, **Rate Limiting**, and **JWT Blacklisting**.
+- **Apache Kafka**: High-throughput distributed event streaming.
+- **Mailpit**: SMTP server for local testing of "Password Reset" flows.
+
+---
+
+## 📂 Project Structure
+
+```bash
+.
+├── backend/
+│   ├── gateway/           # Central Routing + Redis Middlewares
+│   ├── services/
+│   │   ├── user_service/    # Auth, Profiles, Blacklist
+│   │   ├── thread_service/  # Threads, Likes, Reports, Pinning
+│   │   ├── comment_service/ # Nested Comments, Soft Deletes
+│   │   ├── community_service/# Groups, Memberships
+│   │   └── notification_service/ # Kafka Consumer + WebSockets
+│   └── docker-compose.yml   # 15-container mesh
+├── frontend/
+│   ├── src/
+│   │   ├── components/      # Reusable MUI Components
+│   │   ├── context/         # Auth & Theme Global State
+│   │   └── pages/           # 13+ Responsive Pages
+└── Docs/                    # HLD, LLD, and ER Diagrams
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+- Docker & Docker Desktop installed.
+
+### 2. Launch the Ecosystem
+```bash
+# Clone the repository
+git clone <your-repo-link>
+
+# Spin up all 15 containers
+docker-compose up --build
+```
+
+### 3. Access the Services
+- **Frontend UI**: [http://localhost:3000](http://localhost:3000)
+- **API Gateway (Swagger)**: [http://localhost:8000/docs](http://localhost:8000/docs)
+- **Mailpit (Email Inbox)**: [http://localhost:8025](http://localhost:8025)
+
+---
+
+## 👨‍💻 Developed By
+**Manya Gupta**  
+*Passionate about building scalable distributed systems.*
+
   |  Gateway  |
   |  (:8000)  |
   +----+------+
@@ -358,13 +399,15 @@ discussion-forum/
 │   │
 │   ├── gateway/                      # API Gateway — reverse proxy + middleware
 │   │   ├── pyproject.toml
-│   │   └── app/
-│   │       ├── main.py               # Routing, proxy, logout, CORS, health endpoints
-│   │       └── core/
-│   │           ├── config.py          # Service URLs, Redis URL, JWT settings
-│   │           ├── cache.py           # Redis GET caching + invalidation
-│   │           ├── rate_limiter.py    # Redis sliding-window rate limiter
-│   │           └── token_blacklist.py # Redis JWT blacklisting on logout
+│   │   ├── app/
+│   │   │   ├── main.py               # Routing, proxy, logout, CORS, health endpoints
+│   │   │   └── core/
+│   │   │       ├── config.py          # Service URLs, Redis URL, JWT settings
+│   │   │       ├── cache.py           # Redis GET caching + invalidation
+│   │   │       ├── rate_limiter.py    # Redis sliding-window rate limiter
+│   │   │       └── token_blacklist.py # Redis JWT blacklisting on logout
+│   │   └── tests/
+│   │       └── test_redis.py          # Integration tests: caching, blacklist, rate limiting
 │   │
 │   └── services/
 │       ├── user_service/             # Port 8002 — Auth, profiles, admin, email
@@ -389,6 +432,9 @@ discussion-forum/
 │       │       └── services/
 │       │           ├── auth_service.py
 │       │           └── user_service.py
+│       │   └── tests/
+│       │       ├── conftest.py
+│       │       └── test_users.py
 │       │
 │       ├── thread_service/           # Port 8003 — Threads + likes + Kafka
 │       │   ├── pyproject.toml
@@ -477,16 +523,16 @@ discussion-forum/
     │   └── index.html
     └── src/
         ├── index.js                  # Entry point: ThemeProvider + AuthProvider
-        ├── App.js                    # React Router: 15 routes with auth guards
+        ├── App.js                    # React Router: 13 routes with auth guards
         ├── App.css
-        ├── theme.js                  # MUI dark/light theme config
+        ├── theme.js                  # MUI dark/light theme config (orange #FF4500 accent)
         ├── api/
         │   └── api.js                # Axios instance + 401 interceptor + cookie auth
         ├── context/
         │   ├── AuthContext.js         # Auth state, WebSocket, broadcast events
         │   └── ThemeContext.js        # Dark/light theme toggle
         ├── components/
-        │   ├── Navbar.js             # App bar with notification badge + Snackbar
+        │   ├── Navbar.js             # App bar + search bar + notification badge + Snackbar
         │   ├── ConfirmDialog.js      # Reusable confirmation dialog
         │   └── UserAvatar.js         # Avatar with fallback
         ├── utils/
@@ -497,17 +543,15 @@ discussion-forum/
             ├── Register.js
             ├── ForgotPassword.js      # Email-based password reset request
             ├── ResetPassword.js       # Set new password (from email link)
-            ├── Home.js                # Thread feed with real-time updates
+            ├── Home.js                # Thread feed + sidebar (trending tags, top contributors, forum stats)
             ├── CreateThread.js
             ├── ThreadDetail.js        # Thread + nested comments + real-time
             ├── Communities.js
-            ├── CommunityDetail.js     # Real-time thread updates
+            ├── CommunityDetail.js     # Community info + real-time thread updates
             ├── Profile.js
             ├── Dashboard.js
-            ├── MemberDashboard.js
-            ├── ModeratorPanel.js
-            ├── AdminPanel.js
-            └── Notifications.js
+            ├── Notifications.js
+            └── SavedPosts.js          # Bookmarked threads (localStorage)
 ```
 
 ---
@@ -683,7 +727,7 @@ Each service (except User) maintains a local `users` table synced on-demand from
 
 ### Pages & Features
 
-The frontend is a **15-page React SPA** with protected routes. Unauthenticated users can only access Login, Register, ForgotPassword, and ResetPassword.
+The frontend is a **React SPA** with protected routes. Unauthenticated users can only access Login, Register, ForgotPassword, and ResetPassword.
 
 | Page | Key Features |
 |---|---|
@@ -691,17 +735,15 @@ The frontend is a **15-page React SPA** with protected routes. Unauthenticated u
 | **Register** | Username + email + password form (JSON). Email validation. |
 | **ForgotPassword** | Enter email → sends reset link via email. Shows "check your inbox" + Mailpit link. |
 | **ResetPassword** | Token from email URL auto-populated. Enter new password + confirm. |
-| **Home** | Thread feed with search, sort (newest/oldest/most liked), tag chips, like counts. Real-time: `thread_edited`, `thread_like_update`, `new_thread`, `thread_deleted`. |
+| **Home** | Thread feed with sort tabs (Hot/New/Top), like (thumbs up), bookmark/save, avatar + username meta. Sidebar: Trending Tags, Top Contributors, Forum Stats, Recently Active, About ThreadHub. Real-time: `thread_edited`, `thread_like_update`, `new_thread`, `thread_deleted`. |
 | **CreateThread** | Title, description, tags, community dropdown. Supports `?community_id=` pre-selection. |
 | **ThreadDetail** | Full thread + nested comment tree. Real-time: `thread_edited`, `comment_edited`, `thread_like_update`, `comment_like_update`, `new_comment_broadcast`, `thread_deleted`, `comment_deleted`. Snackbar error feedback. |
 | **Communities** | List/search communities. Create community dialog. Join/leave buttons. |
 | **CommunityDetail** | Community info, members, threads. Real-time: `new_thread`, `thread_deleted`, `thread_like_update`, `thread_edited`. |
 | **Profile** | User dashboard: bio, avatar editing, account details. |
 | **Dashboard** | Personal activity dashboard. |
-| **MemberDashboard** | Member-specific view. |
-| **ModeratorPanel** | Moderator-specific view with user listing + stats. |
-| **AdminPanel** | Admin: user stats, search users, role management, delete users. Init-admin button. |
 | **Notifications** | Notification list with mark-read, mark-all-read, unread count. |
+| **SavedPosts** | Bookmarked threads stored in localStorage. Unsave individual posts or clear all. |
 
 ### Authentication Flow
 
@@ -741,11 +783,15 @@ The frontend is a **15-page React SPA** with protected routes. Unauthenticated u
 ### Dark Theme Design System
 
 Custom MUI theme with dark/light toggle (persisted in localStorage):
-- Primary: `#7C4DFF` (purple)
-- Secondary: `#00E5FF` (cyan)
-- Glass-morphism AppBar with `backdrop-filter: blur(20px)`
-- Gradient background, custom scrollbar, hover glow effects
+- Primary: `#FF4500` (orange — Reddit-inspired accent)
+- Background (dark mode): `#0B1416` (deep charcoal) / `#131F22` (paper)
+- Background (light mode): `#DAE0E6` / `#FFFFFF`
+- AppBar: `#131F22` with elevation 0
+- Navbar: centered search bar, Home + Explore nav links, profile dropdown with Saved Posts
+- Thread cards: thumbs up icon, avatar + username in meta line, Save/Bookmark toggle
+- Home sidebar: Trending Tags, Top Contributors, Forum Stats (2×2 grid), Recently Active, About ThreadHub
 - Shape: `borderRadius: 12` globally
+- Smooth transitions on theme switch
 
 ---
 
@@ -1102,7 +1148,7 @@ curl -v http://localhost:8000/threads/ 2>&1 | grep -i ratelimit
 | Community | `http://localhost:8006/docs` |
 | Notification | `http://localhost:8007/docs` |
 
-### Pytest (Thread & Comment services)
+### Pytest (Thread, Comment & User services)
 
 ```bash
 cd backend/services/thread_service
@@ -1112,6 +1158,20 @@ pytest tests/ -v
 cd ../comment_service
 pip install -e ".[test]"
 pytest tests/ -v
+
+cd ../user_service
+pip install -e ".[test]"
+pytest tests/ -v
+```
+
+### Gateway Redis Integration Tests
+
+```bash
+# Requires Docker containers running (connects to Redis via docker compose exec)
+cd backend/gateway
+pip install -e ".[test]"
+pytest tests/test_redis.py -v
+# 9 tests covering: response caching, token blacklisting, rate limiting
 ```
 
 ---
@@ -1158,7 +1218,12 @@ docker compose up --build -d
 | **Soft Deletes** | `deleted_at` timestamp preserves data for audit. Maintains nested comment tree integrity. |
 | **Role-Aware Delete** | `ensure_can_delete()` prevents moderators from deleting admin/moderator content. |
 | **Broadcast Events** | Real-time UI updates (like counts, new threads, edits) pushed to all clients, not persisted. |
-| **JWT via Query for WebSocket** | Browser WebSocket API cannot set custom headers. Token passed as `?token=<jwt>`. |
+| **Saved Posts (localStorage)** | Client-side bookmarks stored in `localStorage`. No backend storage needed — lightweight, private, and instant. Persists across sessions per browser. |
+| **Orange Accent Theme** | Reddit-inspired `#FF4500` orange replaces the original purple. Dark charcoal backgrounds for readability. |
+| **Navbar Search Bar** | Search moved to navbar center for global access. Navigates to `/?search=query` — Home reads from URL params via `useLocation`. |
+| **Home Sidebar Widgets** | Trending Tags, Top Contributors, Forum Stats, Recently Active — all computed client-side from a single `GET /threads?limit=100` call. No new backend endpoints needed. |
+| **Deactivated User Login Block** | Login endpoint checks `is_active == 0` before issuing tokens. Returns clear error message instead of silently failing. |
+| **JWT via Query for WebSocket** | Browser WebSocket API cannot set custom headers. JWT read from httpOnly cookie via manual `SimpleCookie` parsing, with `?token=` query param as fallback. |
 | **Python 3.13 + uv** | Latest Python. `uv` installs packages 10-100x faster than pip in Docker builds. |
 
 ---

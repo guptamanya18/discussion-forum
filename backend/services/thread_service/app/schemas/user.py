@@ -1,3 +1,4 @@
+"""This defines the user information format used in this service."""
 from pydantic import BaseModel
 from typing import Optional
 

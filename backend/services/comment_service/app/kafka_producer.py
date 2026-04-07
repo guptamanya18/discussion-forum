@@ -13,9 +13,11 @@ class KafkaProducerWrapper:
 
     async def start(self):
         self._producer = AIOKafkaProducer(
-            bootstrap_servers=settings.kafka_bootstrap_servers,
-            value_serializer=lambda v: json.dumps(v).encode("utf-8"),
+            bootstrap_servers=settings.kafka_bootstrap_servers, # kafka server address 9092
+            value_serializer=lambda v: json.dumps(v).encode("utf-8"),  # converts python dictionary into bytes
         )
+
+        # start connection
         await self._producer.start()
         logger.info("Kafka producer started")
 
@@ -29,10 +31,10 @@ class KafkaProducerWrapper:
             logger.warning("Kafka producer not started, dropping message")
             return
         try:
-            await self._producer.send_and_wait(topic, value)
+            await self._producer.send_and_wait(topic, value)  # sends message to kafka and waits until its delivered
             logger.info("Sent to %s: %s", topic, value)
         except Exception as e:
             logger.error("Failed to send to Kafka: %s", e)
 
 
-kafka_producer = KafkaProducerWrapper()
+kafka_producer = KafkaProducerWrapper()   # creates single shared instance

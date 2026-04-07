@@ -1,3 +1,4 @@
+"""This is the main brain for the user setup part of our project."""
 import asyncio
 import logging
 import sqlalchemy

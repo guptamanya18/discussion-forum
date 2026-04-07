@@ -1,3 +1,4 @@
+"""This is the main file for the thread service which handles discussions."""
 import asyncio
 import logging
 import os

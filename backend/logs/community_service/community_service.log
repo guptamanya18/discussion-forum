@@ -574,3 +574,16 @@ producer: <aiokafka.producer.producer.AIOKafkaProducer object at 0x7b3ad72457f0>
 2026-04-05 12:58:53,154 [community_service.consumer] INFO: Synced user 19 from Kafka event
 2026-04-05 13:00:57,987 [community_service.consumer] INFO: Synced user 1 from Kafka event
 2026-04-05 13:00:58,480 [community_service.consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 13:17:32,834 [community_service.consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 13:17:34,577 [community_service.consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 13:19:20,832 [community_service.consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 13:19:22,647 [community_service.consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 16:08:17,049 [community_service.consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 16:08:18,442 [community_service.consumer] INFO: Synced user 1 from Kafka event
+2026-04-06 10:45:14,206 [community_service.consumer] INFO: Synced user 11 from Kafka event
+2026-04-06 10:45:15,668 [community_service.consumer] INFO: Synced user 11 from Kafka event
+2026-04-06 10:45:46,299 [community_service.consumer] INFO: Synced user 8 from Kafka event
+2026-04-06 10:45:50,925 [community_service.consumer] INFO: Synced user 8 from Kafka event
+2026-04-06 17:06:21,515 [community_service.consumer] INFO: Synced user 3 from Kafka event
+2026-04-06 18:33:57,515 [community_service.consumer] INFO: Synced user 1 from Kafka event
+2026-04-06 18:33:59,414 [community_service.consumer] INFO: Synced user 1 from Kafka event

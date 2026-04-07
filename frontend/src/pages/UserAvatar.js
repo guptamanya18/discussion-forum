@@ -1,3 +1,4 @@
+/** This helper file manages user profile pictures. */
 import { Avatar } from '@mui/material';
 
 const API_BASE = 'http://localhost:8000';

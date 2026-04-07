@@ -1,3 +1,4 @@
+"""This defines the structure of a discussion thread in our database."""
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, func
 from sqlalchemy.orm import relationship
 from app.database import Base

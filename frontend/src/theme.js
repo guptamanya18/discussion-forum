@@ -6,11 +6,11 @@ const getTheme = (mode) => {
   return createTheme({
     palette: {
       mode,
-      primary: { main: "#7C4DFF", light: "#B388FF", dark: "#651FFF" },
-      secondary: { main: isDark ? "#00E5FF" : "#0097A7", light: "#18FFFF", dark: "#00B8D4" },
+      primary: { main: "#FF4500", light: "#FF6D33", dark: "#CC3700" },
+      secondary: { main: isDark ? "#818384" : "#555658", light: "#9A9B9D", dark: "#636466" },
       background: {
-        default: isDark ? "#030303" : "#DAE0E6",
-        paper: isDark ? "#1A1A1B" : "#FFFFFF",
+        default: isDark ? "#0B1416" : "#DAE0E6",
+        paper: isDark ? "#131F22" : "#FFFFFF",
       },
       text: {
         primary: isDark ? "#D7DADC" : "#1C1C1C",
@@ -19,10 +19,10 @@ const getTheme = (mode) => {
       error: { main: "#FF5252" },
       success: { main: isDark ? "#69F0AE" : "#46D160" },
       warning: { main: "#FFD740" },
-      divider: isDark ? "rgba(255,255,255,0.065)" : "rgba(0,0,0,0.1)",
+      divider: isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.1)",
       action: {
         hover: isDark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)",
-        selected: isDark ? "rgba(124,77,255,0.16)" : "rgba(124,77,255,0.08)",
+        selected: isDark ? "rgba(255,69,0,0.16)" : "rgba(255,69,0,0.08)",
       },
     },
     typography: {
@@ -37,13 +37,13 @@ const getTheme = (mode) => {
       MuiCssBaseline: {
         styleOverrides: {
           body: {
-            backgroundColor: isDark ? "#030303" : "#DAE0E6",
+            backgroundColor: isDark ? "#0B1416" : "#DAE0E6",
             minHeight: "100vh",
           },
           scrollbarWidth: "thin",
-          scrollbarColor: `${isDark ? "#333" : "#bbb"} ${isDark ? "#030303" : "#DAE0E6"}`,
+          scrollbarColor: `${isDark ? "#333" : "#bbb"} ${isDark ? "#0B1416" : "#DAE0E6"}`,
           "::-webkit-scrollbar": { width: "8px" },
-          "::-webkit-scrollbar-track": { background: isDark ? "#030303" : "#DAE0E6" },
+          "::-webkit-scrollbar-track": { background: isDark ? "#0B1416" : "#DAE0E6" },
           "::-webkit-scrollbar-thumb": { background: isDark ? "#333" : "#bbb", borderRadius: "4px" },
         },
       },
@@ -51,10 +51,10 @@ const getTheme = (mode) => {
         styleOverrides: {
           root: {
             backgroundImage: "none",
-            border: `1px solid ${isDark ? "rgba(255,255,255,0.065)" : "rgba(0,0,0,0.1)"}`,
+            border: `1px solid ${isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.1)"}`,
             transition: "border-color 0.2s, box-shadow 0.2s",
             "&:hover": {
-              borderColor: isDark ? "rgba(124,77,255,0.35)" : "rgba(124,77,255,0.4)",
+              borderColor: isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.2)",
               boxShadow: isDark ? "0 2px 8px rgba(0,0,0,0.3)" : "0 2px 8px rgba(0,0,0,0.06)",
             },
           },
@@ -64,13 +64,13 @@ const getTheme = (mode) => {
         styleOverrides: {
           contained: {
             boxShadow: "none",
-            "&:hover": { boxShadow: "0 2px 8px rgba(124,77,255,0.4)" },
+            "&:hover": { boxShadow: "0 2px 8px rgba(255,69,0,0.35)" },
           },
           outlined: {
-            borderColor: isDark ? "rgba(124,77,255,0.5)" : "rgba(124,77,255,0.3)",
+            borderColor: isDark ? "rgba(255,69,0,0.5)" : "rgba(255,69,0,0.3)",
             "&:hover": {
-              borderColor: "#7C4DFF",
-              backgroundColor: alpha("#7C4DFF", 0.08),
+              borderColor: "#FF4500",
+              backgroundColor: alpha("#FF4500", 0.08),
             },
           },
         },
@@ -85,7 +85,7 @@ const getTheme = (mode) => {
           root: {
             "& .MuiOutlinedInput-root": {
               "& fieldset": { borderColor: isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.15)" },
-              "&:hover fieldset": { borderColor: "rgba(124,77,255,0.5)" },
+              "&:hover fieldset": { borderColor: "rgba(255,69,0,0.5)" },
             },
           },
         },
@@ -94,8 +94,8 @@ const getTheme = (mode) => {
         styleOverrides: {
           root: {
             backgroundImage: "none",
-            backgroundColor: isDark ? "#1A1A1B" : "#FFFFFF",
-            borderBottom: `1px solid ${isDark ? "rgba(255,255,255,0.065)" : "rgba(0,0,0,0.1)"}`,
+            backgroundColor: isDark ? "#131F22" : "#FFFFFF",
+            borderBottom: `1px solid ${isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.1)"}`,
             boxShadow: isDark ? "0 1px 3px rgba(0,0,0,0.4)" : "0 1px 3px rgba(0,0,0,0.06)",
             color: isDark ? "#D7DADC" : "#1C1C1C",
           },

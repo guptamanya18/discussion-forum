@@ -1,3 +1,4 @@
+/** This file keeps track of whether you are logged in or not. */
 import { createContext, useContext, useState, useEffect, useRef, useCallback } from "react";
 
 import api, { setLoggedIn, setForceLogout } from '../api/api';

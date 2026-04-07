@@ -1,3 +1,4 @@
+"""This file stores basic user info for the community service."""
 from sqlalchemy import Column, Integer, String, DateTime, func
 from app.database import Base
 

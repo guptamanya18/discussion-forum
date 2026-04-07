@@ -1,3 +1,4 @@
+"""This defines how thread data should look when it's sent to the user."""
 from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional, List

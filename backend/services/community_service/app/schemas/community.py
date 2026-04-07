@@ -1,3 +1,4 @@
+"""This defines the data format for creating and updating communities."""
 from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional

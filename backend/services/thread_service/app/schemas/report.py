@@ -1,3 +1,4 @@
+"""This defines what data is needed to create or view a report."""
 from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional, List

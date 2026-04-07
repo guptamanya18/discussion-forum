@@ -134,6 +134,7 @@ async def upload_avatar(
     return {"avatar": current_user.avatar}
 
 
+# shows total users and count of each role
 @router.get("/admin/stats")
 async def admin_stats(
     current_user: User=Depends(get_current_user),

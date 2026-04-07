@@ -1,3 +1,4 @@
+"""This is the main entry point for the community microservice."""
 import asyncio
 import logging
 import os

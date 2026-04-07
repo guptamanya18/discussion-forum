@@ -1,3 +1,4 @@
+"""This defines how a notification is structured when sent to a user."""
 from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional

@@ -1,3 +1,4 @@
+/** This page shows a single discussion thread in full detail. */
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../api/api';
@@ -5,7 +6,7 @@ import { useAuth } from '../context/AuthContext';
 import {
   Typography, Box, Card, CardContent, Button, TextField, Chip, Divider,
   IconButton, Dialog, DialogTitle, DialogContent, DialogActions, Snackbar, Alert,
-  FormControl, InputLabel, Select, MenuItem
+  FormControl, InputLabel, Select, MenuItem, List, ListItem, ListItemAvatar, ListItemText
 } from '@mui/material';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
@@ -16,7 +17,7 @@ import ReplyIcon from '@mui/icons-material/Reply';
 import FlagIcon from '@mui/icons-material/Flag';
 import { displayUsername } from '../utils/displayUser';
 import { timeAgo } from '../utils/timeAgo';
-import UserAvatar from '../components/UserAvatar';
+import UserAvatar from './UserAvatar';
 import ConfirmDialog from '../components/ConfirmDialog';
 
 function Comment({ comment, onReply, onLike, onEdit, onDelete, currentUser, depth = 0 }) {
@@ -162,8 +163,9 @@ const [confirmData, setConfirmData] = useState({ title: '', message: '', onConfi
 const [snack, setSnack] = useState({ open: false, message: '', severity: 'error' });
 const [reportOpen, setReportOpen] = useState(false);
 const [reportReason, setReportReason] = useState('');
-const [reportDetails, setReportDetails] = useState('');
-
+const [reportDetails, setReportDetails] = useState('');  const [likesOpen, setLikesOpen] = useState(false);
+  const [likedUsers, setLikedUsers] = useState([]);
+  const [loadingLikes, setLoadingLikes] = useState(false);
 const isThreadOwner = user && thread && thread.author?.id === user.id;
 const isStaff = user && (user.role === 'admin' || user.role === 'moderator');
 
@@ -257,6 +259,11 @@ if (broadcastEvent.type === 'comment_edited' && String(broadcastEvent.thread_id)
     setComments(prev => updateContent(prev));
 }
 
+// Comment restored — Real-time refresh of the tree
+if (broadcastEvent.type === 'comment_restored' && String(broadcastEvent.thread_id) === String(id)) {
+    fetchComments();
+}
+
 // Global Avatar Update
 if (broadcastEvent.type === 'avatar_update' && broadcastEvent.user_id) {
     if (thread?.author?.id === broadcastEvent.user_id) {
@@ -295,14 +302,43 @@ console.error('Failed to fetch comments');
 };
 
 const handleLikeThread = async () => {
-try {
-const res = await api.post('/threads/' + id + '/like');
-setThread(prev => ({ ...prev, liked_by_me: res.data.liked, like_count: res.data.like_count }));
-} catch (err) {
-console.error('Failed to toggle thread like');
-}
-};
-const handleAddComment = async () => {
+    // 1. SAVE THE CURRENT STATE (so we can revert if things go wrong)
+    const wasLiked = thread?.liked_by_me || false;
+    const oldLikeCount = thread?.like_count || 0;
+
+    // 2. UPDATE UI IMMEDIATELY (Make it look instant to the user)
+    setThread(prev => ({
+      ...prev,
+      liked_by_me: !wasLiked,
+      like_count: wasLiked ? Math.max(0, oldLikeCount - 1) : oldLikeCount + 1
+    }));
+
+    try {
+      // 3. SEND THE ACTUAL REQUEST TO SERVER
+      const res = await api.post('/threads/' + id + '/like');
+      // Sync again just to match the server exactly
+      setThread(prev => ({ ...prev, liked_by_me: res.data.liked, like_count: res.data.like_count }));
+    } catch (err) {
+      // 4. REVERT IF IT FAILED (e.g. no internet or not logged in)
+      setThread(prev => ({ ...prev, liked_by_me: wasLiked, like_count: oldLikeCount }));
+      setSnack({ open: true, message: 'Failed to like. Are you logged in?', severity: 'error' });
+    }
+  };
+
+  const handleFetchLikes = async () => {
+    setLoadingLikes(true);
+    setLikesOpen(true);
+    try {
+      const res = await api.get(`/threads/${id}/likes`);
+      setLikedUsers(res.data);
+    } catch (err) {
+      console.error('Failed to fetch liked users');
+    } finally {
+      setLoadingLikes(false);
+    }
+  };
+
+  const handleAddComment = async () => {
 if (!newComment.trim()) return;
 try {
 await api.post('/comments', { thread_id: parseInt(id), content: newComment });
@@ -436,7 +472,15 @@ if (!thread) return (
             >
               {thread.liked_by_me ? <ThumbUpIcon sx={{ fontSize: 22 }} /> : <ThumbUpOutlinedIcon sx={{ fontSize: 22 }} />}
             </IconButton>
-            <Typography variant="body2" sx={{ fontWeight: 700 }}>
+            <Typography 
+              variant="body2" 
+              sx={{ 
+                fontWeight: 700, 
+                cursor: 'pointer',
+                '&:hover': { textDecoration: 'underline', color: 'primary.main' }
+              }}
+              onClick={handleFetchLikes}
+            >
               {thread.like_count || 0}
             </Typography>
           </Box>
@@ -581,6 +625,32 @@ if (!thread) return (
       <Snackbar open={snack.open} autoHideDuration={4000} onClose={() => setSnack(s => ({ ...s, open: false }))} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
         <Alert severity={snack.severity} onClose={() => setSnack(s => ({ ...s, open: false }))} variant="filled">{snack.message}</Alert>
       </Snackbar>
+
+      {/* Likes Dialog */}
+      <Dialog open={likesOpen} onClose={() => setLikesOpen(false)} fullWidth maxWidth="xs">
+        <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          Liked by
+          <IconButton size="small" onClick={() => setLikesOpen(false)}>×</IconButton>
+        </DialogTitle>
+        <DialogContent dividers sx={{ p: 0 }}>
+          {loadingLikes ? (
+            <Box sx={{ p: 3, textAlign: 'center' }}>Loading...</Box>
+          ) : likedUsers.length === 0 ? (
+            <Box sx={{ p: 3, textAlign: 'center' }}>No likes yet</Box>
+          ) : (
+            <List sx={{ py: 0 }}>
+              {likedUsers.map((likedUser) => (
+                <ListItem key={likedUser.id} divider>
+                  <ListItemAvatar>
+                    <UserAvatar user={likedUser} size={32} />
+                  </ListItemAvatar>
+                  <ListItemText primary={displayUsername(likedUser.username)} />
+                </ListItem>
+              ))}
+            </List>
+          )}
+        </DialogContent>
+      </Dialog>
 
       {/* Report Dialog */}
       <Dialog open={reportOpen} onClose={() => setReportOpen(false)} fullWidth maxWidth="sm">

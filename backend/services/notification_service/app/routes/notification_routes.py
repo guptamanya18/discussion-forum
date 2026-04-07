@@ -1,3 +1,4 @@
+"""This file handles requests to see or clear notifications."""
 import logging
 from fastapi import APIRouter, Depends
 from sqlalchemy import select, func, update

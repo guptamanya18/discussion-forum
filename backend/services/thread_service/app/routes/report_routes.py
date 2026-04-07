@@ -1,3 +1,4 @@
+"""This file handles requests for reporting inappropriate threads."""
 import logging
 from typing import Optional
 

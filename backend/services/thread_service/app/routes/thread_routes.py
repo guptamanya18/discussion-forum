@@ -1,3 +1,4 @@
+"""This file handles creating, reading, and updating discussion threads."""
 import logging
 from datetime import datetime
 from typing import Literal, Optional

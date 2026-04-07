@@ -1,3 +1,4 @@
+/** This page lists all the notifications for the logged-in user. */
 import { useEffect, useState } from 'react';
 import api from '../api/api';
 import { useAuth } from '../context/AuthContext';

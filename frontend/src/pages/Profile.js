@@ -1,3 +1,4 @@
+/** This page allows users to see and edit their own profile details. */
 import { useEffect, useState, useRef } from 'react';
 import api from '../api/api';
 import { useAuth } from '../context/AuthContext';

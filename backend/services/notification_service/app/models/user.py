@@ -1,3 +1,4 @@
+"""This stores user data needed for sending notifications."""
 from sqlalchemy import Column, Integer, String, DateTime, func
 from app.database import Base
 

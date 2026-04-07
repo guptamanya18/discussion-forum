@@ -1,3 +1,4 @@
+/** This page shows the dashboard for a regular member of the forum. */
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api/api';
@@ -6,7 +7,7 @@ import {
   Container, Typography, Box, Card, CardContent, CardActions, Button, Chip,
   Grid, List, ListItem, ListItemText, Divider
 } from '@mui/material';
-import UserAvatar from '../components/UserAvatar';
+import UserAvatar from './UserAvatar';
 import ForumIcon from '@mui/icons-material/Forum';
 import GroupsIcon from '@mui/icons-material/Groups';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';

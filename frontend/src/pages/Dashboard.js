@@ -1,3 +1,4 @@
+/** This page shows a user's personal activity and stats. */
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../api/api';
@@ -8,7 +9,7 @@ import {
   Tabs, Tab, TextField, Table, TableBody, TableCell, TableContainer,
   TableHead, TableRow, Paper, Select, MenuItem, IconButton, Alert
 } from '@mui/material';
-import UserAvatar from '../components/UserAvatar';
+import UserAvatar from './UserAvatar';
 import ForumIcon from '@mui/icons-material/Forum';
 import GroupsIcon from '@mui/icons-material/Groups';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';

@@ -1,3 +1,4 @@
+"""This file handles real-time updates using web sockets."""
 import asyncio
 from http.cookies import SimpleCookie
 

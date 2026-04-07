@@ -1,3 +1,4 @@
+/** This page allows users to sign in to their account. */
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -105,7 +106,7 @@ function Login() {
               </Typography>
               <Typography align="center" variant="body2" color="text.secondary" sx={{ mt: 1 }}>
                 New to ThreadHub?{' '}
-                <Link to="/register" style={{ color: '#7C4DFF', textDecoration: 'none', fontWeight: 600 }}>
+                <Link to="/register" style={{ color: '#FF4500', textDecoration: 'none', fontWeight: 600 }}>
                   Sign Up
                 </Link>
               </Typography>

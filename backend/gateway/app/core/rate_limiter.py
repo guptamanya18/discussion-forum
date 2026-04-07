@@ -1,4 +1,6 @@
 """
+This file limits how many requests a user can make so the server doesn't crash.
+
 Redis-backed sliding-window rate limiter for the API Gateway.
 
 • Uses Redis sorted sets with timestamps for a true sliding window.

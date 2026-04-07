@@ -1,3 +1,4 @@
+/** This page shows all the threads and info for a specific community. */
 import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import api from '../api/api';
@@ -9,7 +10,7 @@ import {
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import UserAvatar from '../components/UserAvatar';
+import UserAvatar from './UserAvatar';
 import { displayUsername } from '../utils/displayUser';
 import ConfirmDialog from '../components/ConfirmDialog';
 

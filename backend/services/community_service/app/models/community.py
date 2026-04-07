@@ -1,3 +1,4 @@
+"""This file defines the community table for our database."""
 import re
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, func
 from sqlalchemy.orm import relationship

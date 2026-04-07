@@ -1,3 +1,4 @@
+/** This page lets users set a new password after using a reset link. */
 import { useState } from 'react';
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import api from '../api/api';
@@ -63,7 +64,7 @@ function ResetPassword() {
 
             {!token && !error && (
               <Alert severity="warning" sx={{ mb: 2 }}>
-                No reset token found. Please use the link from your email, or <Link to="/forgot-password" style={{ color: '#7C4DFF', fontWeight: 600 }}>request a new one</Link>.
+                No reset token found. Please use the link from your email, or <Link to="/forgot-password" style={{ color: '#FF4500', fontWeight: 600 }}>request a new one</Link>.
               </Alert>
             )}
 
@@ -72,7 +73,7 @@ function ResetPassword() {
               <TextField label="Confirm Password" type="password" fullWidth margin="normal" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required size="small" />
               <Button type="submit" fullWidth variant="contained" disabled={!token} sx={{ mt: 2, mb: 1.5, borderRadius: '20px', py: 1 }}>Reset Password</Button>
               <Typography align="center" variant="body2" color="text.secondary">
-                <Link to="/login" style={{ color: '#7C4DFF', textDecoration: 'none', fontWeight: 600 }}>Back to Login</Link>
+                <Link to="/login" style={{ color: '#FF4500', textDecoration: 'none', fontWeight: 600 }}>Back to Login</Link>
               </Typography>
             </Box>
           </CardContent>

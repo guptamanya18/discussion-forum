@@ -1,3 +1,4 @@
+"""This file handles all the web requests related to communities."""
 import logging
 from typing import Optional
 

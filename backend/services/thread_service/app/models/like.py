@@ -1,3 +1,4 @@
+"""This is where we define what a 'like' looks like in the database."""
 from sqlalchemy import (
     Column, Integer, ForeignKey, DateTime, func,
     UniqueConstraint,

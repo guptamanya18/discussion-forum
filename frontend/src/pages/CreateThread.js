@@ -1,3 +1,4 @@
+/** This page allows users to start a new discussion thread. */
 import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import api from '../api/api';

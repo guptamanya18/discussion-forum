@@ -2,12 +2,12 @@ import { useState } from 'react';
 import {
   AppBar, Toolbar, Typography, Button, Box, Badge, Snackbar, Alert,
   IconButton, Slide, Menu, MenuItem, ListItemIcon, ListItemText,
-  Divider, Switch, Tooltip
+  Divider, Switch, Tooltip, TextField, InputAdornment
 } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useThemeMode } from '../context/ThemeContext';
-import UserAvatar from './UserAvatar';
+import UserAvatar from '../pages/UserAvatar';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import ForumIcon from '@mui/icons-material/Forum';
@@ -19,7 +19,9 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import HomeIcon from '@mui/icons-material/Home';
-import GroupsIcon from '@mui/icons-material/Groups';
+import ExploreIcon from '@mui/icons-material/Explore';
+import SearchIcon from '@mui/icons-material/Search';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 function SlideTransition(props) {
   return <Slide {...props} direction="left" />;
@@ -57,15 +59,13 @@ function Navbar() {
               variant="h6"
               sx={{
                 fontWeight: 800,
-                background: 'linear-gradient(135deg, #7C4DFF 0%, #00E5FF 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                color: '#D7DADC',
                 display: { xs: 'none', sm: 'block' },
                 letterSpacing: '-0.5px',
                 fontSize: '1.25rem',
               }}
             >
-              ThreadHub
+              thread<Box component="span" sx={{ color: 'primary.main' }}>Hub</Box>
             </Typography>
           </Box>
 
@@ -88,7 +88,7 @@ function Navbar() {
                   <Box component="span" sx={{ display: { xs: 'none', md: 'inline' }, fontSize: '0.875rem' }}>Home</Box>
                 </Button>
               </Tooltip>
-              <Tooltip title="Communities">
+              <Tooltip title="Explore Communities">
                 <Button
                   color="inherit"
                   component={Link}
@@ -100,20 +100,47 @@ function Navbar() {
                     '&:hover': { bgcolor: 'action.hover' },
                   }}
                 >
-                  <GroupsIcon sx={{ fontSize: 20, mr: { xs: 0, md: 0.75 } }} />
-                  <Box component="span" sx={{ display: { xs: 'none', md: 'inline' }, fontSize: '0.875rem' }}>Communities</Box>
+                  <ExploreIcon sx={{ fontSize: 20, mr: { xs: 0, md: 0.75 } }} />
+                  <Box component="span" sx={{ display: { xs: 'none', md: 'inline' }, fontSize: '0.875rem' }}>Explore</Box>
                 </Button>
               </Tooltip>
             </Box>
           )}
 
-          <Box sx={{ flexGrow: 1 }} />
+          {/* Center Search Bar */}
+          {token && (
+            <Box sx={{ flex: 1, maxWidth: 480, mx: { xs: 1, md: 3 } }}>
+              <TextField
+                placeholder="Search ThreadHub"
+                size="small"
+                fullWidth
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && e.target.value.trim()) {
+                    navigate('/?search=' + encodeURIComponent(e.target.value.trim()));
+                  }
+                }}
+                InputProps={{
+                  startAdornment: <InputAdornment position="start"><SearchIcon sx={{ fontSize: 20, color: 'text.secondary' }} /></InputAdornment>,
+                  sx: {
+                    borderRadius: '20px',
+                    bgcolor: (theme) => theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+                    fontSize: '0.875rem',
+                    '& fieldset': { borderColor: 'transparent' },
+                    '&:hover fieldset': { borderColor: 'rgba(255,255,255,0.12) !important' },
+                    '&.Mui-focused fieldset': { borderColor: 'primary.main !important' },
+                  },
+                }}
+              />
+            </Box>
+          )}
+
+          {!token && <Box sx={{ flexGrow: 1 }} />}
 
           {/* Right Side */}
           {token ? (
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, ml: 'auto' }}>
               {/* Create Post */}
-              <Tooltip title="Create Post">
+              <Tooltip title="New Post">
                 <Button
                   variant="contained"
                   size="small"
@@ -122,12 +149,13 @@ function Navbar() {
                   startIcon={<AddIcon />}
                   sx={{
                     borderRadius: '20px',
-                    px: 2,
+                    px: 2.5,
                     fontSize: '0.825rem',
+                    fontWeight: 700,
                     display: { xs: 'none', sm: 'flex' },
                   }}
                 >
-                  Create Post
+                  New Post
                 </Button>
               </Tooltip>
               <Tooltip title="Create Post">
@@ -224,6 +252,11 @@ function Navbar() {
                 <MenuItem onClick={() => handleMenuNav('/dashboard')}>
                   <ListItemIcon><DashboardIcon fontSize="small" /></ListItemIcon>
                   <ListItemText>My Dashboard</ListItemText>
+                </MenuItem>
+
+                <MenuItem onClick={() => handleMenuNav('/saved')}>
+                  <ListItemIcon><BookmarkIcon fontSize="small" /></ListItemIcon>
+                  <ListItemText>Saved Posts</ListItemText>
                 </MenuItem>
 
                 <Divider sx={{ my: 0.5 }} />

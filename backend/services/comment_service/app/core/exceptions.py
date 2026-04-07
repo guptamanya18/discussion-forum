@@ -1,7 +1,6 @@
 """
 Custom Exceptions — replaces scattered HTTPException calls.
 
-How it works:
 1. Routes raise custom exceptions:     raise NotFoundException("User not found")
 2. Global handler catches them:         app.add_exception_handler(...)
 3. Handler converts to HTTP response:   {"detail": "User not found"} with 404 status

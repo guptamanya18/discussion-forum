@@ -1,3 +1,4 @@
+/** This page is where new users can create an account. */
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../api/api';
@@ -119,7 +120,7 @@ function Register() {
               </Button>
               <Typography align="center" variant="body2" color="text.secondary">
                 Already have an account?{' '}
-                <Link to="/login" style={{ color: '#7C4DFF', textDecoration: 'none', fontWeight: 600 }}>
+                <Link to="/login" style={{ color: '#FF4500', textDecoration: 'none', fontWeight: 600 }}>
                   Log In
                 </Link>
               </Typography>

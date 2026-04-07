@@ -22,14 +22,14 @@ async def start_kafka_consumer():
     and creates notifications in the database + pushes via WebSocket.
     """
     consumer = AIOKafkaConsumer(
-        *TOPICS,
+        *TOPICS,   # subscribe to multiple topics
         bootstrap_servers=settings.kafka_bootstrap_servers,
         group_id="notification-service",
-        value_deserializer=lambda m: json.loads(m.decode("utf-8")),
+        value_deserializer=lambda m: json.loads(m.decode("utf-8")),  # CONVERT BYTES TO JSON
         auto_offset_reset="earliest",
     )
 
-    # Retry loop — Kafka may not be ready when this service starts
+    # Retry loop — Kafka may not be ready when this service starts  so it keeps retrying until kafka is ready
     while True:
         try:
             await consumer.start()
@@ -38,7 +38,8 @@ async def start_kafka_consumer():
         except Exception as e:
             logger.warning("Kafka not ready, retrying in 3s: %s", e)
             await asyncio.sleep(3)
-
+     
+    # it runs forever and reads each kafka message and processes it
     try:
         async for msg in consumer:
             event = msg.value
@@ -74,6 +75,13 @@ async def start_kafka_consumer():
                     broadcast_data["avatar"] = event["avatar"]
                 if event.get("user_id") is not None:
                     broadcast_data["user_id"] = event["user_id"]
+                
+                # Standardize comment_restored for the frontend listener
+                if event.get("type") == "comment_restored":
+                    broadcast_data["type"] = "comment_restored"
+                    broadcast_data["restored_ids"] = event.get("restored_ids")
+
+                # this sends data via websocket to all connected frontend users
                 await manager.broadcast(broadcast_data)
                 continue
 

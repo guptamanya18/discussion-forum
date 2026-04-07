@@ -285,6 +285,42 @@ async def delete_comment(
     return {"message": f"Comment and {deleted_count - 1} replies deleted successfully"}
 
 
+@router.post("/comments/{comment_id}/restore")
+async def restore_single_comment(
+    comment_id: int,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Simplified restoration: Just clears the deleted_at for the single target ID.
+    """
+    result = await db.execute(
+        select(Comment)
+        .where(Comment.id == comment_id)
+    )
+    comment = result.scalars().first()
+    if not comment:
+        raise NotFoundException("Comment not found")
+
+    if current_user.role not in ["admin", "moderator"] and comment.author_id != current_user.id:
+        raise NotAuthorizedException("Permission denied")
+
+    comment.deleted_at = None
+    await db.commit()
+
+    # Broadcast single ID to ensure real-time update
+    await kafka_producer.send("comment-events", {
+        "event": "comment_restored_broadcast",
+        "broadcast": True,
+        "type": "comment_restored",
+        "comment_id": comment_id,
+        "thread_id": comment.thread_id,
+        "restored_ids": [comment_id],
+    })
+
+    return {"message": "Comment restored successfully"}
+
+
 @router.get("/comments", response_model=list[CommentList])
 async def list_comments(
     skip: int = 0,

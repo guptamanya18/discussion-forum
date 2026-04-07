@@ -1,3 +1,4 @@
+/** This page is for administrators to manage the entire forum. */
 import { useEffect, useState } from 'react';
 import api from '../api/api';
 import { useAuth } from '../context/AuthContext';
@@ -43,6 +44,9 @@ function AdminPanel() {
     }
   };
 
+
+  // sends a put request to user service
+
   const handleRoleChange = async (userId, newRole) => {
     setMessage('');
     setError('');
@@ -84,17 +88,7 @@ function AdminPanel() {
     }
   };
 
-  const handleInitAdmin = async () => {
-    setMessage('');
-    setError('');
-    try {
-      const res = await api.post('/users/init-admin');
-      setMessage(res.data.message);
-      refreshUser();
-    } catch (err) {
-      setError(err.response?.data?.detail || 'Failed to initialize admin');
-    }
-  };
+
 
   // If user is not admin, deny access
   if (user?.role !== 'admin') {

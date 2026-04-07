@@ -7366,3 +7366,488 @@ consumer: <aiokafka.consumer.consumer.AIOKafkaConsumer object at 0x7dae0edaf8c0>
 2026-04-05 13:09:27,106 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
 2026-04-05 13:09:31,808 [app.ws_manager] INFO: User 1 disconnected from WebSocket
 2026-04-05 13:09:31,997 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-05 13:17:32,822 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'avatar_update', 'user_id': 1, 'avatar': '/uploads/avatars/1_7f7af76ba7e54ce6a00f2399672c0f2f.jpg', 'broadcast': True}
+2026-04-05 13:17:32,823 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [1]), data type: avatar_update
+2026-04-05 13:17:32,823 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-05 13:17:32,826 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-05 13:17:32,828 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'user_updated', 'user_id': 1, 'username': 'alice', 'email': 'alice@example.com', 'role': 'admin', 'avatar': '/uploads/avatars/1_7f7af76ba7e54ce6a00f2399672c0f2f.jpg', 'is_active': True}
+2026-04-05 13:17:32,836 [app.kafka_consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 13:17:34,575 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'user_updated', 'user_id': 1, 'username': 'alice', 'email': 'alice@example.com', 'role': 'admin', 'avatar': '/uploads/avatars/1_7f7af76ba7e54ce6a00f2399672c0f2f.jpg', 'is_active': True}
+2026-04-05 13:17:34,578 [app.kafka_consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 13:17:49,089 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-05 13:18:00,697 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-05 13:19:20,821 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'avatar_update', 'user_id': 1, 'avatar': '/uploads/avatars/1_055ad573f8b745febb24a5d0b0b1d973.jpg', 'broadcast': True}
+2026-04-05 13:19:20,823 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [1]), data type: avatar_update
+2026-04-05 13:19:20,823 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-05 13:19:20,824 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-05 13:19:20,825 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'user_updated', 'user_id': 1, 'username': 'alice', 'email': 'alice@example.com', 'role': 'admin', 'avatar': '/uploads/avatars/1_055ad573f8b745febb24a5d0b0b1d973.jpg', 'is_active': True}
+2026-04-05 13:19:20,833 [app.kafka_consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 13:19:22,645 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'user_updated', 'user_id': 1, 'username': 'alice', 'email': 'alice@example.com', 'role': 'admin', 'avatar': '/uploads/avatars/1_055ad573f8b745febb24a5d0b0b1d973.jpg', 'is_active': True}
+2026-04-05 13:19:22,650 [app.kafka_consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 14:48:54,306 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-05 15:43:35,057 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-05 15:43:45,846 [app.kafka_consumer] INFO: Received event from thread-events: {'broadcast': True, 'type': 'thread_like_update', 'thread_id': 20, 'like_count': 8}
+2026-04-05 15:43:45,848 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [1]), data type: thread_like_update
+2026-04-05 15:43:45,850 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-05 15:43:45,854 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-05 15:43:45,860 [app.kafka_consumer] INFO: Received event from thread-events: {'event': 'thread_liked', 'user_id': 20, 'actor_id': 1, 'type': 'thread_like', 'message': 'alice liked your thread', 'reference_id': 20}
+2026-04-05 15:43:45,897 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-05 15:53:27,991 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-05 15:53:28,474 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-05 16:02:20,473 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'comment_like_update', 'comment_id': 74, 'thread_id': 14, 'like_count': 2}
+2026-04-05 16:02:20,476 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [1]), data type: comment_like_update
+2026-04-05 16:02:20,477 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-05 16:02:20,478 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-05 16:02:20,480 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_liked', 'user_id': 16, 'actor_id': 1, 'type': 'comment_like', 'message': 'alice liked your comment', 'reference_id': 74}
+2026-04-05 16:02:20,503 [app.ws_manager] INFO: User 16 not connected, skipping WebSocket push
+2026-04-05 16:02:20,586 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_liked_on_thread', 'user_id': 14, 'type': 'comment_like', 'message': 'alice liked a comment on your thread', 'reference_id': 74}
+2026-04-05 16:02:20,593 [app.ws_manager] INFO: User 14 not connected, skipping WebSocket push
+2026-04-05 16:03:16,864 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-05 16:03:39,221 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-05 16:04:35,512 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-05 16:04:35,714 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-05 16:08:17,010 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'avatar_update', 'user_id': 1, 'avatar': '/uploads/avatars/1_0f6f5b5d4ee44e33bd357c64ce07a280.jpg', 'broadcast': True}
+2026-04-05 16:08:17,010 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [1]), data type: avatar_update
+2026-04-05 16:08:17,011 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-05 16:08:17,012 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-05 16:08:17,015 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'user_updated', 'user_id': 1, 'username': 'alice', 'email': 'alice@example.com', 'role': 'admin', 'avatar': '/uploads/avatars/1_0f6f5b5d4ee44e33bd357c64ce07a280.jpg', 'is_active': True}
+2026-04-05 16:08:17,027 [app.kafka_consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 16:08:18,435 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'user_updated', 'user_id': 1, 'username': 'alice', 'email': 'alice@example.com', 'role': 'admin', 'avatar': '/uploads/avatars/1_0f6f5b5d4ee44e33bd357c64ce07a280.jpg', 'is_active': True}
+2026-04-05 16:08:18,438 [app.kafka_consumer] INFO: Synced user 1 from Kafka event
+2026-04-05 16:09:22,823 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-05 18:47:35,845 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-05 19:08:03,415 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-05 22:12:51,121 [app.ws_manager] INFO: User 12 connected via WebSocket (1 total connections)
+2026-04-05 22:12:51,231 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/12 "HTTP/1.1 200 OK"
+2026-04-05 23:22:57,317 [app.ws_manager] INFO: User 12 disconnected from WebSocket
+2026-04-06 10:22:58,684 [app.ws_manager] INFO: User 8 connected via WebSocket (1 total connections)
+2026-04-06 10:22:58,767 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/8 "HTTP/1.1 200 OK"
+2026-04-06 10:43:51,825 [app.ws_manager] INFO: User 8 disconnected from WebSocket
+2026-04-06 10:43:57,765 [app.ws_manager] INFO: User 8 connected via WebSocket (1 total connections)
+2026-04-06 10:44:24,575 [app.ws_manager] INFO: User 8 disconnected from WebSocket
+2026-04-06 10:44:41,144 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 10:44:41,167 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/11 "HTTP/1.1 200 OK"
+2026-04-06 10:45:14,128 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'avatar_update', 'user_id': 11, 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp', 'broadcast': True}
+2026-04-06 10:45:14,129 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [11]), data type: avatar_update
+2026-04-06 10:45:14,132 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 10:45:14,133 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 10:45:14,136 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'user_updated', 'user_id': 11, 'username': 'karen', 'email': 'karen@example.com', 'role': 'member', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp', 'is_active': True}
+2026-04-06 10:45:14,146 [app.kafka_consumer] INFO: Synced user 11 from Kafka event
+2026-04-06 10:45:15,660 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'user_updated', 'user_id': 11, 'username': 'karen', 'email': 'karen@example.com', 'role': 'member', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp', 'is_active': True}
+2026-04-06 10:45:15,663 [app.kafka_consumer] INFO: Synced user 11 from Kafka event
+2026-04-06 10:45:29,417 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-06 10:45:36,373 [app.ws_manager] INFO: User 8 connected via WebSocket (1 total connections)
+2026-04-06 10:45:46,292 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'avatar_update', 'user_id': 8, 'avatar': '/uploads/avatars/8_e2c19ea36d4d4d76a029ed1f84c1217e.jpg', 'broadcast': True}
+2026-04-06 10:45:46,292 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [8]), data type: avatar_update
+2026-04-06 10:45:46,293 [app.ws_manager] INFO: Broadcast sent to user 8
+2026-04-06 10:45:46,293 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 10:45:46,295 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'user_updated', 'user_id': 8, 'username': 'henry', 'email': 'henry@example.com', 'role': 'member', 'avatar': '/uploads/avatars/8_e2c19ea36d4d4d76a029ed1f84c1217e.jpg', 'is_active': True}
+2026-04-06 10:45:46,301 [app.kafka_consumer] INFO: Synced user 8 from Kafka event
+2026-04-06 10:45:50,922 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'user_updated', 'user_id': 8, 'username': 'henry', 'email': 'henry@example.com', 'role': 'member', 'avatar': '/uploads/avatars/8_e2c19ea36d4d4d76a029ed1f84c1217e.jpg', 'is_active': True}
+2026-04-06 10:45:50,925 [app.kafka_consumer] INFO: Synced user 8 from Kafka event
+2026-04-06 10:46:35,681 [app.ws_manager] INFO: User 8 disconnected from WebSocket
+2026-04-06 11:23:01,720 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 11:36:47,977 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 11:48:21,879 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 11:48:58,540 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 12:00:23,513 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 12:00:26,768 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 12:00:35,400 [app.ws_manager] INFO: User 4 connected via WebSocket (1 total connections)
+2026-04-06 12:00:35,459 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/4 "HTTP/1.1 200 OK"
+2026-04-06 12:00:51,789 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'comment_like_update', 'comment_id': 105, 'thread_id': 19, 'like_count': 1}
+2026-04-06 12:00:51,790 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [4]), data type: comment_like_update
+2026-04-06 12:00:51,791 [app.ws_manager] INFO: Broadcast sent to user 4
+2026-04-06 12:00:51,791 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 12:00:51,851 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_liked_on_thread', 'user_id': 19, 'type': 'comment_like', 'message': 'diana liked a comment on your thread', 'reference_id': 105}
+2026-04-06 12:00:51,858 [app.ws_manager] INFO: User 19 not connected, skipping WebSocket push
+2026-04-06 12:00:56,610 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'comment_like_update', 'comment_id': 106, 'thread_id': 19, 'like_count': 1}
+2026-04-06 12:00:56,611 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [4]), data type: comment_like_update
+2026-04-06 12:00:56,612 [app.ws_manager] INFO: Broadcast sent to user 4
+2026-04-06 12:00:56,612 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 12:00:56,614 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_liked', 'user_id': 15, 'actor_id': 4, 'type': 'comment_like', 'message': 'diana liked your comment', 'reference_id': 106}
+2026-04-06 12:00:56,620 [app.ws_manager] INFO: User 15 not connected, skipping WebSocket push
+2026-04-06 12:00:56,642 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_liked_on_thread', 'user_id': 19, 'type': 'comment_like', 'message': 'diana liked a comment on your thread', 'reference_id': 106}
+2026-04-06 12:00:56,649 [app.ws_manager] INFO: User 19 not connected, skipping WebSocket push
+2026-04-06 12:16:13,685 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'comment_like_update', 'comment_id': 117, 'thread_id': 19, 'like_count': 1}
+2026-04-06 12:16:13,685 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [4]), data type: comment_like_update
+2026-04-06 12:16:13,686 [app.ws_manager] INFO: Broadcast sent to user 4
+2026-04-06 12:16:13,687 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 12:16:13,689 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_liked', 'user_id': 3, 'actor_id': 4, 'type': 'comment_like', 'message': 'diana liked your comment', 'reference_id': 117}
+2026-04-06 12:16:13,697 [app.ws_manager] INFO: User 3 not connected, skipping WebSocket push
+2026-04-06 12:16:13,730 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_liked_on_thread', 'user_id': 19, 'type': 'comment_like', 'message': 'diana liked a comment on your thread', 'reference_id': 117}
+2026-04-06 12:16:13,737 [app.ws_manager] INFO: User 19 not connected, skipping WebSocket push
+2026-04-06 12:16:17,385 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'comment_like_update', 'comment_id': 117, 'thread_id': 19, 'like_count': 0}
+2026-04-06 12:16:17,386 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [4]), data type: comment_like_update
+2026-04-06 12:16:17,387 [app.ws_manager] INFO: Broadcast sent to user 4
+2026-04-06 12:16:17,388 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 12:19:09,215 [app.ws_manager] INFO: User 4 disconnected from WebSocket
+2026-04-06 12:19:10,867 [app.ws_manager] INFO: User 4 connected via WebSocket (1 total connections)
+2026-04-06 12:19:14,334 [app.ws_manager] INFO: User 4 disconnected from WebSocket
+2026-04-06 12:19:16,396 [app.ws_manager] INFO: User 4 connected via WebSocket (1 total connections)
+2026-04-06 12:19:19,309 [app.ws_manager] INFO: User 4 disconnected from WebSocket
+2026-04-06 12:59:58,860 [app.ws_manager] INFO: User 4 connected via WebSocket (1 total connections)
+2026-04-06 13:00:03,015 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'comment_like_update', 'comment_id': 106, 'thread_id': 19, 'like_count': 0}
+2026-04-06 13:00:03,021 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [4]), data type: comment_like_update
+2026-04-06 13:00:03,022 [app.ws_manager] INFO: Broadcast sent to user 4
+2026-04-06 13:00:03,022 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 13:11:40,263 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'new_comment', 'user_id': 16, 'type': 'new_comment', 'message': 'diana commented on your thread', 'reference_id': 133}
+2026-04-06 13:11:40,304 [app.ws_manager] INFO: User 16 not connected, skipping WebSocket push
+2026-04-06 13:11:40,307 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 133, 'content': 'good', 'thread_id': 16, 'author': {'id': 4, 'username': 'diana', 'avatar': None}, 'parent_comment_id': 88, 'created_at': '2026-04-06 13:11:40.124797', 'updated_at': '2026-04-06 13:11:40.124797', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 13:11:40,308 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [4]), data type: new_comment_broadcast
+2026-04-06 13:11:40,309 [app.ws_manager] INFO: Broadcast sent to user 4
+2026-04-06 13:11:40,310 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 13:30:53,681 [app.ws_manager] INFO: User 4 disconnected from WebSocket
+2026-04-06 13:53:10,015 [app.ws_manager] INFO: User 4 connected via WebSocket (1 total connections)
+2026-04-06 13:53:28,114 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'comment_like_update', 'comment_id': 109, 'thread_id': 20, 'like_count': 1}
+2026-04-06 13:53:28,115 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [4]), data type: comment_like_update
+2026-04-06 13:53:28,117 [app.ws_manager] INFO: Broadcast sent to user 4
+2026-04-06 13:53:28,118 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 13:53:28,121 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_liked', 'user_id': 16, 'actor_id': 4, 'type': 'comment_like', 'message': 'diana liked your comment', 'reference_id': 109}
+2026-04-06 13:53:28,159 [app.ws_manager] INFO: User 16 not connected, skipping WebSocket push
+2026-04-06 13:53:28,205 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_liked_on_thread', 'user_id': 20, 'type': 'comment_like', 'message': 'diana liked a comment on your thread', 'reference_id': 109}
+2026-04-06 13:53:28,210 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 13:53:29,635 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'comment_like_update', 'comment_id': 109, 'thread_id': 20, 'like_count': 0}
+2026-04-06 13:53:29,636 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [4]), data type: comment_like_update
+2026-04-06 13:53:29,637 [app.ws_manager] INFO: Broadcast sent to user 4
+2026-04-06 13:53:29,638 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 13:53:30,552 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'comment_like_update', 'comment_id': 109, 'thread_id': 20, 'like_count': 1}
+2026-04-06 13:53:30,552 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [4]), data type: comment_like_update
+2026-04-06 13:53:30,553 [app.ws_manager] INFO: Broadcast sent to user 4
+2026-04-06 13:53:30,553 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 13:53:30,555 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_liked', 'user_id': 16, 'actor_id': 4, 'type': 'comment_like', 'message': 'diana liked your comment', 'reference_id': 109}
+2026-04-06 13:53:30,560 [app.ws_manager] INFO: User 16 not connected, skipping WebSocket push
+2026-04-06 13:53:30,582 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_liked_on_thread', 'user_id': 20, 'type': 'comment_like', 'message': 'diana liked a comment on your thread', 'reference_id': 109}
+2026-04-06 13:53:30,589 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 14:08:46,763 [app.ws_manager] INFO: User 4 disconnected from WebSocket
+2026-04-06 14:08:47,170 [app.ws_manager] INFO: User 4 connected via WebSocket (1 total connections)
+2026-04-06 14:18:08,671 [app.ws_manager] INFO: User 4 disconnected from WebSocket
+2026-04-06 14:18:08,922 [app.ws_manager] INFO: User 4 connected via WebSocket (1 total connections)
+2026-04-06 14:18:19,377 [app.kafka_consumer] INFO: Received event from thread-events: {'broadcast': True, 'type': 'thread_like_update', 'thread_id': 20, 'like_count': 9}
+2026-04-06 14:18:19,378 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [4]), data type: thread_like_update
+2026-04-06 14:18:19,378 [app.ws_manager] INFO: Broadcast sent to user 4
+2026-04-06 14:18:19,379 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 14:18:19,380 [app.kafka_consumer] INFO: Received event from thread-events: {'event': 'thread_liked', 'user_id': 20, 'actor_id': 4, 'type': 'thread_like', 'message': 'diana liked your thread', 'reference_id': 20}
+2026-04-06 14:18:19,387 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 14:18:27,283 [app.kafka_consumer] INFO: Received event from thread-events: {'broadcast': True, 'type': 'thread_like_update', 'thread_id': 15, 'like_count': 6}
+2026-04-06 14:18:27,284 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [4]), data type: thread_like_update
+2026-04-06 14:18:27,284 [app.ws_manager] INFO: Broadcast sent to user 4
+2026-04-06 14:18:27,285 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 14:18:27,287 [app.kafka_consumer] INFO: Received event from thread-events: {'event': 'thread_liked', 'user_id': 15, 'actor_id': 4, 'type': 'thread_like', 'message': 'diana liked your thread', 'reference_id': 15}
+2026-04-06 14:18:27,293 [app.ws_manager] INFO: User 15 not connected, skipping WebSocket push
+2026-04-06 14:19:43,874 [app.ws_manager] INFO: User 4 disconnected from WebSocket
+2026-04-06 14:19:44,083 [app.ws_manager] INFO: User 4 connected via WebSocket (1 total connections)
+2026-04-06 14:19:49,806 [app.ws_manager] INFO: User 4 disconnected from WebSocket
+2026-04-06 14:19:57,563 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 14:20:03,067 [app.kafka_consumer] INFO: Received event from thread-events: {'broadcast': True, 'type': 'thread_like_update', 'thread_id': 20, 'like_count': 8}
+2026-04-06 14:20:03,067 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [1]), data type: thread_like_update
+2026-04-06 14:20:03,069 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 14:20:03,070 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 14:20:03,695 [app.kafka_consumer] INFO: Received event from thread-events: {'broadcast': True, 'type': 'thread_like_update', 'thread_id': 20, 'like_count': 9}
+2026-04-06 14:20:03,695 [app.ws_manager] INFO: Broadcasting to 1 clients (users: [1]), data type: thread_like_update
+2026-04-06 14:20:03,696 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 14:20:03,697 [app.ws_manager] INFO: Broadcast complete: 1/1 successful
+2026-04-06 14:20:03,699 [app.kafka_consumer] INFO: Received event from thread-events: {'event': 'thread_liked', 'user_id': 20, 'actor_id': 1, 'type': 'thread_like', 'message': 'alice liked your thread', 'reference_id': 20}
+2026-04-06 14:20:03,706 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 14:34:24,973 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 14:34:26,649 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 14:34:30,070 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 14:34:31,792 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 15:50:53,617 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 17:05:28,614 [app.ws_manager] INFO: User 3 connected via WebSocket (1 total connections)
+2026-04-06 17:05:28,712 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/3 "HTTP/1.1 200 OK"
+2026-04-06 17:05:28,739 [httpx] INFO: HTTP Request: GET http://user_service:8002/users/3 "HTTP/1.1 200 OK"
+2026-04-06 17:05:39,449 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 17:06:21,493 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'user_updated', 'user_id': 3, 'username': 'charlie', 'email': 'charlie@example.com', 'role': 'member', 'avatar': None, 'is_active': False}
+2026-04-06 17:06:21,514 [app.kafka_consumer] INFO: Synced user 3 from Kafka event
+2026-04-06 17:06:21,671 [app.ws_manager] INFO: Pushed notification to user 3 via WebSocket
+2026-04-06 17:06:24,728 [app.ws_manager] INFO: User 3 disconnected from WebSocket
+2026-04-06 17:11:00,392 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 17:12:15,463 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_reply', 'user_id': 2, 'type': 'comment_reply', 'message': 'karen replied to your comment', 'reference_id': 134}
+2026-04-06 17:12:15,471 [app.ws_manager] INFO: User 2 not connected, skipping WebSocket push
+2026-04-06 17:12:15,529 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 134, 'content': 'a', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 56, 'created_at': '2026-04-06 17:12:15.440017', 'updated_at': '2026-04-06 17:12:15.440017', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:12:15,530 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: new_comment_broadcast
+2026-04-06 17:12:15,531 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:12:15,532 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:12:15,532 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:12:20,310 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 135, 'content': 'b', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 134, 'created_at': '2026-04-06 17:12:20.274820', 'updated_at': '2026-04-06 17:12:20.274820', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:12:20,311 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: new_comment_broadcast
+2026-04-06 17:12:20,311 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:12:20,311 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:12:20,312 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:12:24,538 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 136, 'content': 'c', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 135, 'created_at': '2026-04-06 17:12:24.505437', 'updated_at': '2026-04-06 17:12:24.505437', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:12:24,538 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: new_comment_broadcast
+2026-04-06 17:12:24,539 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:12:24,539 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:12:24,540 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:12:29,726 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 137, 'content': 'd', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 136, 'created_at': '2026-04-06 17:12:29.695855', 'updated_at': '2026-04-06 17:12:29.695855', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:12:29,727 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: new_comment_broadcast
+2026-04-06 17:12:29,728 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:12:29,729 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:12:29,729 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:12:34,324 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 138, 'content': 'e', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 137, 'created_at': '2026-04-06 17:12:34.293313', 'updated_at': '2026-04-06 17:12:34.293313', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:12:34,325 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: new_comment_broadcast
+2026-04-06 17:12:34,326 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:12:34,327 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:12:34,327 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:12:39,497 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 139, 'content': 'f', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 138, 'created_at': '2026-04-06 17:12:39.463554', 'updated_at': '2026-04-06 17:12:39.463554', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:12:39,498 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: new_comment_broadcast
+2026-04-06 17:12:39,498 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:12:39,498 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:12:39,499 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:12:43,625 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 140, 'content': 'g', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 139, 'created_at': '2026-04-06 17:12:43.589426', 'updated_at': '2026-04-06 17:12:43.589426', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:12:43,625 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: new_comment_broadcast
+2026-04-06 17:12:43,626 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:12:43,627 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:12:43,627 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:12:48,302 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 141, 'content': 'h', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 140, 'created_at': '2026-04-06 17:12:48.264935', 'updated_at': '2026-04-06 17:12:48.264935', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:12:48,302 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: new_comment_broadcast
+2026-04-06 17:12:48,303 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:12:48,303 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:12:48,304 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:12:53,302 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 142, 'content': 'i', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 141, 'created_at': '2026-04-06 17:12:53.264746', 'updated_at': '2026-04-06 17:12:53.264746', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:12:53,302 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: new_comment_broadcast
+2026-04-06 17:12:53,303 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:12:53,303 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:12:53,303 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:12:58,603 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 143, 'content': 'j', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 142, 'created_at': '2026-04-06 17:12:58.556637', 'updated_at': '2026-04-06 17:12:58.556637', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:12:58,604 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: new_comment_broadcast
+2026-04-06 17:12:58,605 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:12:58,605 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:12:58,605 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:14:48,560 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted', 'user_id': 2, 'type': 'comment_deleted', 'message': 'Your comment was removed by a moderator', 'reference_id': 56}
+2026-04-06 17:14:48,571 [app.ws_manager] INFO: User 2 not connected, skipping WebSocket push
+2026-04-06 17:14:48,573 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted_broadcast', 'broadcast': True, 'type': 'comment_deleted', 'comment_id': 56, 'thread_id': 11, 'deleted_count': 11}
+2026-04-06 17:14:48,574 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: comment_deleted
+2026-04-06 17:14:48,574 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:14:48,575 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:14:48,575 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:23:02,351 [app.ws_manager] INFO: User 14 not connected, skipping WebSocket push
+2026-04-06 17:23:05,994 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-06 17:23:06,201 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 17:47:08,832 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 17:47:08,971 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 17:47:14,397 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted', 'user_id': 2, 'type': 'comment_deleted', 'message': 'Your comment was removed by a moderator', 'reference_id': 56}
+2026-04-06 17:47:14,405 [app.ws_manager] INFO: User 2 not connected, skipping WebSocket push
+2026-04-06 17:47:14,407 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted_broadcast', 'broadcast': True, 'type': 'comment_deleted', 'comment_id': 56, 'thread_id': 11, 'deleted_count': 1}
+2026-04-06 17:47:14,408 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: comment_deleted
+2026-04-06 17:47:14,408 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:47:14,408 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:47:14,409 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:47:59,866 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted', 'user_id': 20, 'type': 'comment_deleted', 'message': 'Your comment was removed by a moderator', 'reference_id': 60}
+2026-04-06 17:47:59,872 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 17:47:59,874 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted_broadcast', 'broadcast': True, 'type': 'comment_deleted', 'comment_id': 60, 'thread_id': 11, 'deleted_count': 2}
+2026-04-06 17:47:59,874 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: comment_deleted
+2026-04-06 17:47:59,875 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:47:59,875 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:47:59,876 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:49:42,859 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-06 17:49:43,063 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 17:49:55,902 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 17:49:56,019 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 17:52:11,369 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_reply', 'user_id': 1, 'type': 'comment_reply', 'message': 'karen replied to your comment', 'reference_id': 144}
+2026-04-06 17:52:11,376 [app.ws_manager] INFO: Pushed notification to user 1 via WebSocket
+2026-04-06 17:52:11,432 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 144, 'content': 'a', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 57, 'created_at': '2026-04-06 17:52:11.357362', 'updated_at': '2026-04-06 17:52:11.357362', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:52:11,433 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: new_comment_broadcast
+2026-04-06 17:52:11,433 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:52:11,434 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:52:11,434 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:52:15,568 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 145, 'content': 'b', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 144, 'created_at': '2026-04-06 17:52:15.533015', 'updated_at': '2026-04-06 17:52:15.533015', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:52:15,569 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: new_comment_broadcast
+2026-04-06 17:52:15,570 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:52:15,571 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:52:15,571 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:52:21,345 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 17:52:21,580 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 17:53:16,062 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted_broadcast', 'broadcast': True, 'type': 'comment_deleted', 'comment_id': 57, 'thread_id': 11, 'deleted_count': 3}
+2026-04-06 17:53:16,063 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: comment_deleted
+2026-04-06 17:53:16,064 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:53:16,064 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:53:16,065 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:54:15,918 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-06 17:54:16,242 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 17:54:26,329 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 17:54:26,501 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 17:56:22,929 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-06 17:56:23,164 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 17:56:36,173 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_reply', 'user_id': 5, 'type': 'comment_reply', 'message': 'karen replied to your comment', 'reference_id': 146}
+2026-04-06 17:56:36,177 [app.ws_manager] INFO: User 5 not connected, skipping WebSocket push
+2026-04-06 17:56:36,205 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 146, 'content': 'h', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 58, 'created_at': '2026-04-06 17:56:36.162165', 'updated_at': '2026-04-06 17:56:36.162165', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:56:36,206 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: new_comment_broadcast
+2026-04-06 17:56:36,207 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:56:36,207 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:56:36,208 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:56:40,902 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 147, 'content': 'j', 'thread_id': 11, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 146, 'created_at': '2026-04-06 17:56:40.867307', 'updated_at': '2026-04-06 17:56:40.867307', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 17:56:40,902 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: new_comment_broadcast
+2026-04-06 17:56:40,903 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:56:40,903 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:56:40,904 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:57:00,319 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted', 'user_id': 5, 'type': 'comment_deleted', 'message': 'Your comment was removed by a moderator', 'reference_id': 58}
+2026-04-06 17:57:00,325 [app.ws_manager] INFO: User 5 not connected, skipping WebSocket push
+2026-04-06 17:57:00,326 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted_broadcast', 'broadcast': True, 'type': 'comment_deleted', 'comment_id': 58, 'thread_id': 11, 'deleted_count': 3}
+2026-04-06 17:57:00,326 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [1, 11]), data type: comment_deleted
+2026-04-06 17:57:00,327 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 17:57:00,328 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 17:57:00,328 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 17:57:46,473 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-06 17:57:46,700 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 17:57:55,865 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-06 17:57:56,090 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 17:59:38,270 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 17:59:38,535 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 17:59:58,870 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 17:59:59,048 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 18:00:22,808 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_reply', 'user_id': 5, 'type': 'comment_reply', 'message': 'alice replied to your comment', 'reference_id': 148}
+2026-04-06 18:00:22,814 [app.ws_manager] INFO: User 5 not connected, skipping WebSocket push
+2026-04-06 18:00:22,836 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'new_comment', 'user_id': 20, 'type': 'new_comment', 'message': 'alice commented on your thread', 'reference_id': 148}
+2026-04-06 18:00:22,842 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 18:00:22,844 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 148, 'content': 'hello', 'thread_id': 20, 'author': {'id': 1, 'username': 'alice', 'avatar': '/uploads/avatars/1_0f6f5b5d4ee44e33bd357c64ce07a280.jpg'}, 'parent_comment_id': 110, 'created_at': '2026-04-06 18:00:22.794075', 'updated_at': '2026-04-06 18:00:22.794075', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 18:00:22,845 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: new_comment_broadcast
+2026-04-06 18:00:22,845 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:00:22,846 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:00:22,846 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:00:41,597 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted', 'user_id': 5, 'type': 'comment_deleted', 'message': 'Your comment was removed by a moderator', 'reference_id': 110}
+2026-04-06 18:00:41,604 [app.ws_manager] INFO: User 5 not connected, skipping WebSocket push
+2026-04-06 18:00:41,606 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted_broadcast', 'broadcast': True, 'type': 'comment_deleted', 'comment_id': 110, 'thread_id': 20, 'deleted_count': 2}
+2026-04-06 18:00:41,606 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: comment_deleted
+2026-04-06 18:00:41,607 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:00:41,608 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:00:41,608 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:01:29,804 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-06 18:01:30,064 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 18:01:35,495 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 18:01:35,610 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 18:01:39,418 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 18:01:39,504 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 18:05:41,388 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_reply', 'user_id': 16, 'type': 'comment_reply', 'message': 'karen replied to your comment', 'reference_id': 149}
+2026-04-06 18:05:41,396 [app.ws_manager] INFO: User 16 not connected, skipping WebSocket push
+2026-04-06 18:05:41,433 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'new_comment', 'user_id': 20, 'type': 'new_comment', 'message': 'karen commented on your thread', 'reference_id': 149}
+2026-04-06 18:05:41,439 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 18:05:41,441 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 149, 'content': '1', 'thread_id': 20, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 109, 'created_at': '2026-04-06 18:05:41.376653', 'updated_at': '2026-04-06 18:05:41.376653', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 18:05:41,442 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: new_comment_broadcast
+2026-04-06 18:05:41,443 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:05:41,443 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:05:41,443 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:05:45,208 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'new_comment', 'user_id': 20, 'type': 'new_comment', 'message': 'karen commented on your thread', 'reference_id': 150}
+2026-04-06 18:05:45,215 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 18:05:45,217 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 150, 'content': '2', 'thread_id': 20, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 149, 'created_at': '2026-04-06 18:05:45.167633', 'updated_at': '2026-04-06 18:05:45.167633', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 18:05:45,217 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: new_comment_broadcast
+2026-04-06 18:05:45,218 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:05:45,218 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:05:45,218 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:05:49,168 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'new_comment', 'user_id': 20, 'type': 'new_comment', 'message': 'karen commented on your thread', 'reference_id': 151}
+2026-04-06 18:05:49,173 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 18:05:49,175 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 151, 'content': '3', 'thread_id': 20, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 150, 'created_at': '2026-04-06 18:05:49.135010', 'updated_at': '2026-04-06 18:05:49.135010', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 18:05:49,175 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: new_comment_broadcast
+2026-04-06 18:05:49,176 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:05:49,176 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:05:49,177 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:05:53,528 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'new_comment', 'user_id': 20, 'type': 'new_comment', 'message': 'karen commented on your thread', 'reference_id': 152}
+2026-04-06 18:05:53,535 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 18:05:53,537 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 152, 'content': '4', 'thread_id': 20, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 151, 'created_at': '2026-04-06 18:05:53.496902', 'updated_at': '2026-04-06 18:05:53.496902', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 18:05:53,537 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: new_comment_broadcast
+2026-04-06 18:05:53,538 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:05:53,538 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:05:53,538 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:05:57,006 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'new_comment', 'user_id': 20, 'type': 'new_comment', 'message': 'karen commented on your thread', 'reference_id': 153}
+2026-04-06 18:05:57,012 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 18:05:57,013 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 153, 'content': '5', 'thread_id': 20, 'author': {'id': 11, 'username': 'karen', 'avatar': '/uploads/avatars/11_1fbd0120e4de4459bd82142c5567e92a.webp'}, 'parent_comment_id': 152, 'created_at': '2026-04-06 18:05:56.976068', 'updated_at': '2026-04-06 18:05:56.976068', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 18:05:57,014 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: new_comment_broadcast
+2026-04-06 18:05:57,015 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:05:57,015 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:05:57,016 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:06:04,748 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted', 'user_id': 16, 'type': 'comment_deleted', 'message': 'Your comment was removed by a moderator', 'reference_id': 109}
+2026-04-06 18:06:04,755 [app.ws_manager] INFO: User 16 not connected, skipping WebSocket push
+2026-04-06 18:06:04,757 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted_broadcast', 'broadcast': True, 'type': 'comment_deleted', 'comment_id': 109, 'thread_id': 20, 'deleted_count': 6}
+2026-04-06 18:06:04,757 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: comment_deleted
+2026-04-06 18:06:04,758 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:06:04,758 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:06:04,759 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:07:21,528 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-06 18:07:21,780 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 18:09:45,358 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 18:09:45,608 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 18:09:49,170 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted', 'user_id': 16, 'type': 'comment_deleted', 'message': 'Your comment was removed by a moderator', 'reference_id': 109}
+2026-04-06 18:09:49,176 [app.ws_manager] INFO: User 16 not connected, skipping WebSocket push
+2026-04-06 18:09:49,178 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted_broadcast', 'broadcast': True, 'type': 'comment_deleted', 'comment_id': 109, 'thread_id': 20, 'deleted_count': 1}
+2026-04-06 18:09:49,179 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: comment_deleted
+2026-04-06 18:09:49,181 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:09:49,182 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:09:49,183 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:20:39,616 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_reply', 'user_id': 5, 'type': 'comment_reply', 'message': 'alice replied to your comment', 'reference_id': 154}
+2026-04-06 18:20:39,621 [app.ws_manager] INFO: User 5 not connected, skipping WebSocket push
+2026-04-06 18:20:39,647 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'new_comment', 'user_id': 20, 'type': 'new_comment', 'message': 'alice commented on your thread', 'reference_id': 154}
+2026-04-06 18:20:39,654 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 18:20:39,656 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 154, 'content': 'k', 'thread_id': 20, 'author': {'id': 1, 'username': 'alice', 'avatar': '/uploads/avatars/1_0f6f5b5d4ee44e33bd357c64ce07a280.jpg'}, 'parent_comment_id': 110, 'created_at': '2026-04-06 18:20:39.602398', 'updated_at': '2026-04-06 18:20:39.602398', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 18:20:39,656 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: new_comment_broadcast
+2026-04-06 18:20:39,657 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:20:39,658 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:20:39,658 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:20:45,840 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'new_comment', 'user_id': 20, 'type': 'new_comment', 'message': 'alice commented on your thread', 'reference_id': 155}
+2026-04-06 18:20:45,845 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 18:20:45,846 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 155, 'content': 'j', 'thread_id': 20, 'author': {'id': 1, 'username': 'alice', 'avatar': '/uploads/avatars/1_0f6f5b5d4ee44e33bd357c64ce07a280.jpg'}, 'parent_comment_id': 154, 'created_at': '2026-04-06 18:20:45.809197', 'updated_at': '2026-04-06 18:20:45.809197', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 18:20:45,847 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: new_comment_broadcast
+2026-04-06 18:20:45,847 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:20:45,848 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:20:45,848 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:20:59,296 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted', 'user_id': 5, 'type': 'comment_deleted', 'message': 'Your comment was removed by a moderator', 'reference_id': 110}
+2026-04-06 18:20:59,303 [app.ws_manager] INFO: User 5 not connected, skipping WebSocket push
+2026-04-06 18:20:59,304 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted_broadcast', 'broadcast': True, 'type': 'comment_deleted', 'comment_id': 110, 'thread_id': 20, 'deleted_count': 3}
+2026-04-06 18:20:59,305 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: comment_deleted
+2026-04-06 18:20:59,306 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:20:59,307 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:20:59,307 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:29:51,510 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-06 18:29:51,839 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 18:30:00,313 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 18:30:00,533 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 18:30:07,837 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_reply', 'user_id': 8, 'type': 'comment_reply', 'message': 'alice replied to your comment', 'reference_id': 156}
+2026-04-06 18:30:07,847 [app.ws_manager] INFO: User 8 not connected, skipping WebSocket push
+2026-04-06 18:30:07,871 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'new_comment', 'user_id': 20, 'type': 'new_comment', 'message': 'alice commented on your thread', 'reference_id': 156}
+2026-04-06 18:30:07,878 [app.ws_manager] INFO: User 20 not connected, skipping WebSocket push
+2026-04-06 18:30:07,880 [app.kafka_consumer] INFO: Received event from comment-events: {'broadcast': True, 'type': 'new_comment_broadcast', 'comment': {'id': 156, 'content': 'dione', 'thread_id': 20, 'author': {'id': 1, 'username': 'alice', 'avatar': '/uploads/avatars/1_0f6f5b5d4ee44e33bd357c64ce07a280.jpg'}, 'parent_comment_id': 111, 'created_at': '2026-04-06 18:30:07.822456', 'updated_at': '2026-04-06 18:30:07.822456', 'like_count': 0, 'liked_by_me': False, 'reply_count': 0, 'replies': []}}
+2026-04-06 18:30:07,881 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: new_comment_broadcast
+2026-04-06 18:30:07,881 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:30:07,882 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:30:07,884 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:30:19,212 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted', 'user_id': 8, 'type': 'comment_deleted', 'message': 'Your comment was removed by a moderator', 'reference_id': 111}
+2026-04-06 18:30:19,219 [app.ws_manager] INFO: User 8 not connected, skipping WebSocket push
+2026-04-06 18:30:19,220 [app.kafka_consumer] INFO: Received event from comment-events: {'event': 'comment_deleted_broadcast', 'broadcast': True, 'type': 'comment_deleted', 'comment_id': 111, 'thread_id': 20, 'deleted_count': 2}
+2026-04-06 18:30:19,220 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: comment_deleted
+2026-04-06 18:30:19,221 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:30:19,222 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:30:19,222 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:30:47,301 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 18:30:47,406 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 18:30:49,247 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 18:30:49,334 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 18:30:53,293 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-06 18:30:53,519 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 18:32:27,263 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-06 18:32:27,466 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 18:32:28,349 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-06 18:32:28,541 [app.ws_manager] INFO: User 11 connected via WebSocket (1 total connections)
+2026-04-06 18:32:34,576 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 18:32:34,706 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-06 18:33:57,436 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'avatar_update', 'user_id': 1, 'avatar': '/uploads/avatars/1_cbea0fd34b6f4f7ab6e7866eb33255da.jpg', 'broadcast': True}
+2026-04-06 18:33:57,437 [app.ws_manager] INFO: Broadcasting to 2 clients (users: [11, 1]), data type: avatar_update
+2026-04-06 18:33:57,438 [app.ws_manager] INFO: Broadcast sent to user 11
+2026-04-06 18:33:57,439 [app.ws_manager] INFO: Broadcast sent to user 1
+2026-04-06 18:33:57,439 [app.ws_manager] INFO: Broadcast complete: 2/2 successful
+2026-04-06 18:33:57,442 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'user_updated', 'user_id': 1, 'username': 'alice', 'email': 'alice@example.com', 'role': 'admin', 'avatar': '/uploads/avatars/1_cbea0fd34b6f4f7ab6e7866eb33255da.jpg', 'is_active': True}
+2026-04-06 18:33:57,451 [app.kafka_consumer] INFO: Synced user 1 from Kafka event
+2026-04-06 18:33:59,408 [app.kafka_consumer] INFO: Received event from user-events: {'type': 'user_updated', 'user_id': 1, 'username': 'alice', 'email': 'alice@example.com', 'role': 'admin', 'avatar': '/uploads/avatars/1_cbea0fd34b6f4f7ab6e7866eb33255da.jpg', 'is_active': True}
+2026-04-06 18:33:59,410 [app.kafka_consumer] INFO: Synced user 1 from Kafka event
+2026-04-06 18:35:53,591 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-06 18:41:03,918 [app.ws_manager] INFO: User 11 disconnected from WebSocket
+2026-04-07 09:54:11,476 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-07 09:56:34,612 [app.ws_manager] INFO: User 1 connected via WebSocket (2 total connections)
+2026-04-07 10:13:07,266 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-07 10:19:23,409 [app.ws_manager] INFO: User 1 connected via WebSocket (2 total connections)
+2026-04-07 10:38:11,278 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-07 10:56:55,224 [app.ws_manager] INFO: User 1 connected via WebSocket (2 total connections)
+2026-04-07 10:56:57,314 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-07 11:03:06,679 [app.ws_manager] INFO: User 1 connected via WebSocket (2 total connections)
+2026-04-07 11:24:53,454 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-07 11:41:01,908 [app.ws_manager] INFO: User 1 disconnected from WebSocket
+2026-04-07 11:41:15,883 [app.ws_manager] INFO: User 1 connected via WebSocket (1 total connections)
+2026-04-07 12:29:06,968 [app.ws_manager] INFO: User 1 disconnected from WebSocket

@@ -1,3 +1,4 @@
+"""This defines what a notification message looks like in the database."""
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, func
 from app.database import Base
 

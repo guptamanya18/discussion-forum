@@ -1,3 +1,4 @@
+"""This file stores which users belong to which communities."""
 from sqlalchemy import Column, Integer, ForeignKey, DateTime, String, UniqueConstraint, func
 from sqlalchemy.orm import relationship
 from app.database import Base

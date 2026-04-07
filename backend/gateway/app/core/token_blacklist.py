@@ -1,4 +1,6 @@
 """
+This file keeps track of logged-out users so their old tokens can't be used again.
+
 Token blacklist using Redis.
 
 On logout, the token is added to Redis with a TTL equal to its remaining

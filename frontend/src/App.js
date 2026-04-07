@@ -1,3 +1,4 @@
+/** This is the big file that shows different pages of our website. */
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
@@ -13,6 +14,7 @@ import Notifications from './pages/Notifications';
 import Dashboard from './pages/Dashboard';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
+import SavedPosts from './pages/SavedPosts';
 
 function App() {
 const { token } = useAuth();
@@ -33,6 +35,7 @@ return (
 <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} />
 <Route path="/notifications" element={token ? <Notifications /> : <Navigate to="/login" />} />
 <Route path="/dashboard" element={token ? <Dashboard /> : <Navigate to="/login" />} />
+<Route path="/saved" element={token ? <SavedPosts /> : <Navigate to="/login" />} />
 </Routes>
 </BrowserRouter>
 );

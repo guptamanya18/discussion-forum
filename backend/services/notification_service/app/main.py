@@ -1,3 +1,4 @@
+"""This is the main entry point for the notification service."""
 import asyncio
 import logging
 import sqlalchemy

@@ -1,3 +1,4 @@
+/** This file controls the colors and style of the whole website. */
 import { createContext, useContext, useState, useMemo } from 'react';
 
 // mui applies theme to entire app

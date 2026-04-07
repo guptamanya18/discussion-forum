@@ -1,4 +1,6 @@
 """
+This file helps save data temporarily so the website loads faster.
+
 Simple Redis cache for the API Gateway.
 
 How it works:
