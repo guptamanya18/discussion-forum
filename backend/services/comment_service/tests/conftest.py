@@ -107,3 +107,24 @@ async def second_user_token():
             algorithm=os.environ["ALGORITHM"],
         )
         return token
+
+
+@pytest_asyncio.fixture
+async def admin_token():
+    """Create an admin user and return their JWT token."""
+    async with TestSession() as session:
+        user = User(
+            username="adminuser",
+            email="admin@example.com",
+            hashed_password="unused",
+            role="admin",
+        )
+        session.add(user)
+        await session.commit()
+        await session.refresh(user)
+        token = jwt.encode(
+            {"sub": str(user.id)},
+            os.environ["SECRET_KEY"],
+            algorithm=os.environ["ALGORITHM"],
+        )
+        return token

@@ -134,6 +134,8 @@ Logging: RotatingFileHandler (5MB, 3 backups) per service → volume-mounted to 
 
 When a user performs an action (like, reply, join), the originating service publishes a Kafka event. The Notification Service consumes it, saves it, and pushes it via WebSocket.
 
+**Resilience Note**: The Notification Service consumer implements a high-availability safety loop. If a message is malformed or the connection is interrupted, the service logs the error and continues processing the next message, preventing a global system crash on bad data.
+
 ```
   Step 1: User A likes User B's thread
   +--------+       +---------+       +----------+
@@ -248,26 +250,29 @@ When a user performs an action (like, reply, join), the originating service publ
        |<------------------+                   |
 ```
 
-### Lazy User Sync Flow
+### Event-Driven User Sync Flow
 
-Each service (Thread, Comment, Community, Notification) has its own `users` table. When a service encounters a user ID it hasn't seen before, it fetches the user info from the User Service and stores a local copy.
+Each service (Thread, Comment, Community, Notification) has its own `users` table. User data is propagated entirely through Kafka events — no direct HTTP calls between services.
 
 ```
-  Comment Service receives comment from user_id=42
+  User Service — registration
        |
-       +---> Found in local users table?
-       |       |
-       |       +-- YES --> Use cached username
-       |       |
-       |       +-- NO  --> GET /users/42 from User Service
-       |                       |
-       |                       v
-       |                  Store in local users table
-       |                       |
-       |                       v
-       |                  Use fetched username
+       +---> Publish "user_created" event to Kafka (user-events topic)
+       |
        v
-  Attach author info to comment response
+  Kafka distributes to all consumer services
+       |
+       +---> Thread Service  — creates local user row
+       +---> Comment Service — creates local user row
+       +---> Community Service — creates local user row
+       +---> Notification Service — creates local user row
+
+  User Service — profile/avatar/role update
+       |
+       +---> Publish "user_updated" event to Kafka
+       |
+       v
+  All consumer services update their local copy
 ```
 
 ---
@@ -378,7 +383,7 @@ discussion-forum/
 │       │       │   ├── permissions.py  # ensure_can_delete (role-aware)
 │       │       │   └── exceptions.py
 │       │       ├── models/
-│       │       │   ├── user.py         # Local user copy (lazy sync)
+│       │       │   ├── user.py         # Local user copy (Kafka-synced)
 │       │       │   ├── thread.py
 │       │       │   └── like.py
 │       │       ├── schemas/
@@ -658,7 +663,7 @@ Five independent PostgreSQL databases, one per service:
 | `community_db` | Community Service | 5437 | `communities`, `community_members`, `users` (local copy) |
 | `notification_db` | Notification Service | 5438 | `notifications`, `users` (local copy) |
 
-Each service (except User) maintains a local `users` table synced on-demand from the User Service. This is the **Lazy User Sync** pattern.
+Each service (except User) maintains a local `users` table synced via Kafka events from the User Service. This is the **Event-Driven User Sync** pattern (Event-Carried State Transfer).
 
 ---
 
@@ -1136,7 +1141,7 @@ docker compose up --build -d
 | **Token Blacklisting on Logout** | JWTs are stateless but logout needs immediate invalidation. Redis TTL = remaining token lifetime. |
 | **Email-Based Password Reset** | Secure: token never exposed in API response. Prevents email enumeration with generic responses. |
 | **Mailpit for Dev Email** | All emails captured locally. Web UI at port 8025. No real emails sent during development. |
-| **Lazy User Sync** | Services fetch user info on-demand. Reduces coupling vs. pre-syncing all user data. |
+| **Event-Driven User Sync** | User data propagated via Kafka `user_created`/`user_updated` events. Zero direct HTTP calls between services — fully decoupled. |
 | **Soft Deletes** | `deleted_at` timestamp preserves data for audit. Maintains nested comment tree integrity. |
 | **Role-Aware Delete** | `ensure_can_delete()` prevents moderators from deleting admin/moderator content. |
 | **Broadcast Events** | Real-time UI updates (like counts, new threads, edits) pushed to all clients, not persisted. |

@@ -9,6 +9,8 @@ os.environ.setdefault("ALGORITHM", "HS256")
 os.environ.setdefault("ACCESS_TOKEN_EXPIRE_MINUTES", "30")
 os.environ.setdefault("DATABASE_URL", "sqlite+aiosqlite://")
 
+from unittest.mock import AsyncMock, MagicMock
+
 import pytest_asyncio
 from httpx import ASGITransport, AsyncClient
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
@@ -24,6 +26,20 @@ TestSession = sessionmaker(test_engine, class_=AsyncSession, expire_on_commit=Fa
 
 # Override the real Postgres engine so health-check uses SQLite too
 db_module.engine = test_engine
+
+# ── Mock Kafka producer ──────────────────────────────────────────
+_mock_kafka = MagicMock()
+_mock_kafka.send = AsyncMock(return_value=None)
+_mock_kafka._producer = True
+
+import app.routes.user_routes as user_routes_mod
+import app.main as main_mod
+
+user_routes_mod.kafka_producer = _mock_kafka
+main_mod.kafka_producer = _mock_kafka
+
+# Mock external service URL
+user_routes_mod.NOTIFICATION_SERVICE_URL = "http://127.0.0.1:1"
 
 
 async def _override_get_db():
@@ -63,5 +79,28 @@ async def auth_token(client: AsyncClient) -> str:
     resp = await client.post("/auth/login", data={
         "username": "testuser",
         "password": "pass123",
+    })
+    return resp.json()["access_token"]
+
+
+@pytest_asyncio.fixture
+async def admin_token(client: AsyncClient) -> str:
+    """Register, login, then promote to admin via direct DB update."""
+    await client.post("/users/register", json={
+        "username": "adminuser",
+        "email": "admin@example.com",
+        "password": "admin123",
+    })
+    # Promote to admin directly in DB
+    from app.models.user import User
+    from sqlalchemy import select, update
+    async with TestSession() as session:
+        await session.execute(
+            update(User).where(User.username == "adminuser").values(role="admin")
+        )
+        await session.commit()
+    resp = await client.post("/auth/login", data={
+        "username": "adminuser",
+        "password": "admin123",
     })
     return resp.json()["access_token"]

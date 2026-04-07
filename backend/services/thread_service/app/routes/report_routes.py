@@ -117,8 +117,8 @@ async def list_reports(
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
-    if current_user.role not in ("admin", "moderator"):
-        raise ForbiddenException("Only staff can view reports")
+    if current_user.role != "admin":
+        raise ForbiddenException("Only admin can view reports")
 
     query = (
         select(Report)
@@ -164,8 +164,8 @@ async def update_report_status(
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
-    if current_user.role not in ("admin", "moderator"):
-        raise ForbiddenException("Only staff can update reports")
+    if current_user.role != "admin":
+        raise ForbiddenException("Only admin can update reports")
 
     if status not in ("reviewed", "dismissed"):
         raise BadRequestException("Status must be 'reviewed' or 'dismissed'")

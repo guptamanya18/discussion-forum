@@ -1,6 +1,6 @@
 """
-Shared fixtures for thread_service async tests.
-Uses SQLite in-memory DB, mocks Kafka producer.
+Shared fixtures for notification_service async tests.
+Uses SQLite in-memory DB, mocks Kafka consumer and WebSocket manager.
 """
 import os
 
@@ -27,22 +27,12 @@ test_engine = create_async_engine("sqlite+aiosqlite://", echo=False)
 TestSession = sessionmaker(test_engine, class_=AsyncSession, expire_on_commit=False)
 db_module.engine = test_engine
 
-# ── Mock Kafka producer ──────────────────────────────────────────
-_mock_kafka = MagicMock()
-_mock_kafka.send = AsyncMock(return_value=None)
-_mock_kafka._producer = True
+# ── Mock WebSocket manager ───────────────────────────────────────
+import app.routes.notification_routes as routes_mod
 
-import app.routes.thread_routes as routes_mod
-import app.routes.report_routes as report_routes_mod
-import app.main as main_mod
-
-routes_mod.kafka_producer = _mock_kafka
-report_routes_mod.kafka_producer = _mock_kafka
-main_mod.kafka_producer = _mock_kafka
-
-# Mock external service URLs so tests don't make real HTTP calls
-routes_mod.COMMUNITY_SERVICE_URL = "http://127.0.0.1:1"
-routes_mod.COMMENT_SERVICE_URL = "http://127.0.0.1:1"
+_mock_manager = MagicMock()
+_mock_manager.send_to_user = AsyncMock(return_value=None)
+routes_mod.manager = _mock_manager
 
 
 async def _override_get_db():
@@ -88,7 +78,7 @@ async def auth_token():
             os.environ["SECRET_KEY"],
             algorithm=os.environ["ALGORITHM"],
         )
-        return token
+        return token, user.id
 
 
 @pytest_asyncio.fixture
@@ -109,46 +99,4 @@ async def second_user_token():
             os.environ["SECRET_KEY"],
             algorithm=os.environ["ALGORITHM"],
         )
-        return token
-
-
-@pytest_asyncio.fixture
-async def admin_token():
-    """Create an admin user and return their JWT token."""
-    async with TestSession() as session:
-        user = User(
-            username="adminuser",
-            email="admin@example.com",
-            hashed_password="unused",
-            role="admin",
-        )
-        session.add(user)
-        await session.commit()
-        await session.refresh(user)
-        token = jwt.encode(
-            {"sub": str(user.id)},
-            os.environ["SECRET_KEY"],
-            algorithm=os.environ["ALGORITHM"],
-        )
-        return token
-
-
-@pytest_asyncio.fixture
-async def moderator_token():
-    """Create a moderator user and return their JWT token."""
-    async with TestSession() as session:
-        user = User(
-            username="moduser",
-            email="mod@example.com",
-            hashed_password="unused",
-            role="moderator",
-        )
-        session.add(user)
-        await session.commit()
-        await session.refresh(user)
-        token = jwt.encode(
-            {"sub": str(user.id)},
-            os.environ["SECRET_KEY"],
-            algorithm=os.environ["ALGORITHM"],
-        )
-        return token
+        return token, user.id

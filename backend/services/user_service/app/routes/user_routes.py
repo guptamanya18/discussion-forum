@@ -20,6 +20,7 @@ UPLOAD_DIR = "/app/uploads/avatars"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
+ALLOWED_MIME_TYPES = {"image/jpeg", "image/png", "image/gif", "image/webp"}
 MAX_FILE_SIZE = 5 * 1024 * 1024  # 5 MB
 
 logger = logging.getLogger("user_service.users")
@@ -31,7 +32,20 @@ router = APIRouter(prefix="/users", tags=["Users"])
 
 @router.post("/register", response_model=UserResponse)
 async def register_user(user: UserCreate, db: AsyncSession = Depends(get_db)):
-    return await create_user(db, user)
+    new_user = await create_user(db, user)
+
+    # Publish user_created event so other services sync via Kafka (no direct HTTP calls)
+    await kafka_producer.send("user-events", {
+        "type": "user_created",
+        "user_id": new_user.id,
+        "username": new_user.username,
+        "email": new_user.email,
+        "role": new_user.role,
+        "avatar": new_user.avatar,
+        "is_active": new_user.is_active != 0,
+    })
+
+    return new_user
 
 
 @router.post("/init-admin")
@@ -89,7 +103,7 @@ async def upload_avatar(
     db: AsyncSession = Depends(get_db),
 ):
     ext = os.path.splitext(file.filename or "")[1].lower()
-    if ext not in ALLOWED_EXTENSIONS:
+    if ext not in ALLOWED_EXTENSIONS or file.content_type not in ALLOWED_MIME_TYPES:
         raise BadRequestException(f"Invalid file type. Allowed: {', '.join(ALLOWED_EXTENSIONS)}")
 
     contents = await file.read()

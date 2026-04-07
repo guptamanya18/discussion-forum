@@ -33,7 +33,8 @@ async def start_kafka_consumer():
     try:
         async for msg in consumer:
             event = msg.value
-            if event.get("type") != "user_updated":
+            event_type = event.get("type")
+            if event_type not in ("user_created", "user_updated"):
                 continue
 
             user_id = event.get("user_id")
@@ -50,7 +51,20 @@ async def start_kafka_consumer():
                     user.avatar = event.get("avatar")
                     user.is_active = 1 if event.get("is_active", True) else 0
                     await db.commit()
-                    logger.info("Synced user %d from Kafka event", user_id)
+                    logger.info("Updated user %d from Kafka event", user_id)
+                elif event_type == "user_created":
+                    new_user = User(
+                        id=user_id,
+                        username=event["username"],
+                        email=event["email"],
+                        role=event.get("role", "member"),
+                        avatar=event.get("avatar"),
+                        is_active=1 if event.get("is_active", True) else 0,
+                        hashed_password="synced",
+                    )
+                    db.add(new_user)
+                    await db.commit()
+                    logger.info("Created user %d from Kafka event", user_id)
     finally:
         await consumer.stop()
         logger.info("Kafka consumer stopped")

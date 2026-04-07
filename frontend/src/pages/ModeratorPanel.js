@@ -1,4 +1,4 @@
-/** This page is for moderators to review reported threads and manage things. */
+/** This page is for moderators to manage things. */
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api/api';

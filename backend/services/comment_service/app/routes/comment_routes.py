@@ -303,7 +303,7 @@ async def restore_single_comment(
         raise NotFoundException("Comment not found")
 
     if current_user.role not in ["admin", "moderator"] and comment.author_id != current_user.id:
-        raise NotAuthorizedException("Permission denied")
+        raise ForbiddenException("Permission denied")
 
     comment.deleted_at = None
     await db.commit()

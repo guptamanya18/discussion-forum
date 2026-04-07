@@ -38,9 +38,11 @@ from app.core.config import settings
 from app.core.cache import get_cached, set_cached, invalidate_cache
 from app.core.token_blacklist import blacklist_token, is_token_blacklisted
 from app.core.rate_limiter import check_rate_limit
+from app.core.exceptions import register_exception_handlers
 
 
 app = FastAPI(title="API Gateway")
+register_exception_handlers(app)
 
 
 def custom_openapi():

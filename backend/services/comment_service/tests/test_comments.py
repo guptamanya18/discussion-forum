@@ -158,3 +158,110 @@ async def test_thread_comment_counts(client: AsyncClient, auth_token: str):
     assert data["1"] == 2
     assert data["2"] == 1
     assert "3" not in data  # no comments on thread 3
+
+
+# ── Update / Delete auth ─────────────────────────────────────────
+
+@pytest.mark.asyncio
+async def test_update_comment_forbidden(client: AsyncClient, auth_token: str, second_user_token: str):
+    create = await client.post(
+        "/comments",
+        json={"content": "Owner only", "thread_id": 1},
+        headers=_auth(auth_token),
+    )
+    cid = create.json()["id"]
+    resp = await client.put(
+        f"/comments/{cid}",
+        json={"content": "Hacked"},
+        headers=_auth(second_user_token),
+    )
+    assert resp.status_code == 403
+
+
+@pytest.mark.asyncio
+async def test_update_comment_not_found(client: AsyncClient, auth_token: str):
+    resp = await client.put("/comments/999", json={"content": "X"}, headers=_auth(auth_token))
+    assert resp.status_code == 404
+
+
+@pytest.mark.asyncio
+async def test_delete_comment_by_admin(client: AsyncClient, auth_token: str, admin_token: str):
+    create = await client.post(
+        "/comments",
+        json={"content": "Admin can delete", "thread_id": 1},
+        headers=_auth(auth_token),
+    )
+    cid = create.json()["id"]
+    resp = await client.delete(f"/comments/{cid}", headers=_auth(admin_token))
+    assert resp.status_code == 200
+
+
+@pytest.mark.asyncio
+async def test_delete_comment_forbidden(client: AsyncClient, auth_token: str, second_user_token: str):
+    create = await client.post(
+        "/comments",
+        json={"content": "No delete", "thread_id": 1},
+        headers=_auth(auth_token),
+    )
+    cid = create.json()["id"]
+    resp = await client.delete(f"/comments/{cid}", headers=_auth(second_user_token))
+    assert resp.status_code == 403
+
+
+@pytest.mark.asyncio
+async def test_delete_comment_not_found(client: AsyncClient, auth_token: str):
+    resp = await client.delete("/comments/999", headers=_auth(auth_token))
+    assert resp.status_code == 404
+
+
+# ── Comment list & tree ──────────────────────────────────────────
+
+@pytest.mark.asyncio
+async def test_list_comments_by_thread(client: AsyncClient, auth_token: str):
+    await client.post("/comments", json={"content": "c1", "thread_id": 10}, headers=_auth(auth_token))
+    await client.post("/comments", json={"content": "c2", "thread_id": 10}, headers=_auth(auth_token))
+    resp = await client.get("/threads/10/comments")
+    assert resp.status_code == 200
+    assert len(resp.json()) == 2
+
+
+@pytest.mark.asyncio
+async def test_comment_tree_with_replies(client: AsyncClient, auth_token: str, second_user_token: str):
+    parent = await client.post(
+        "/comments",
+        json={"content": "Parent", "thread_id": 20},
+        headers=_auth(auth_token),
+    )
+    pid = parent.json()["id"]
+    await client.post(
+        "/comments",
+        json={"content": "Child", "thread_id": 20, "parent_comment_id": pid},
+        headers=_auth(second_user_token),
+    )
+    resp = await client.get("/threads/20/comments")
+    assert resp.status_code == 200
+    tree = resp.json()
+    assert len(tree) == 1  # Only parent at top level
+    assert len(tree[0]["replies"]) == 1
+
+
+# ── Like list ────────────────────────────────────────────────────
+
+@pytest.mark.asyncio
+async def test_get_comment_likes_list(client: AsyncClient, auth_token: str):
+    create = await client.post(
+        "/comments",
+        json={"content": "Like list", "thread_id": 1},
+        headers=_auth(auth_token),
+    )
+    cid = create.json()["id"]
+    await client.post(f"/comments/{cid}/like", headers=_auth(auth_token))
+    resp = await client.get(f"/comments/{cid}/likes")
+    assert resp.status_code == 200
+    assert len(resp.json()) == 1
+
+
+@pytest.mark.asyncio
+async def test_get_comment_likes_not_found(client: AsyncClient):
+    resp = await client.get("/comments/999/likes")
+    assert resp.status_code == 404

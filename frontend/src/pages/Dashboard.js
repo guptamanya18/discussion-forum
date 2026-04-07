@@ -67,7 +67,7 @@ function Dashboard() {
     { label: 'My Threads', icon: <ChatBubbleOutlineIcon /> },
   ];
   if (isStaff) tabs.push({ label: 'Manage Platform', icon: <AdminPanelSettingsIcon /> });
-  if (isStaff) tabs.push({ label: 'Reports', icon: <FlagIcon /> });
+  if (isAdmin) tabs.push({ label: 'Reports', icon: <FlagIcon /> });
 
   // Fetch data based on active tab
   useEffect(() => {
