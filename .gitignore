@@ -15,6 +15,10 @@ env/
 *.swp
 *.swo
 
+# Postman
+.postman/
+postman/
+
 # Runtime artifacts
 *.db
 *.sqlite3
@@ -23,8 +27,12 @@ env/
 Thumbs.db
 .DS_Store
 
-# Environment files (uncomment to track .env in git)
-# .env
+# Environment files
+.env
+
+# Logs
+*.log
+backend/logs/
 
 # Build / distribution
 dist/
